@@ -12,9 +12,7 @@
           </div>
         </template>
         <template v-else>
-          <div class="top-btn">
-            <img src="../assets/首页.png" />
-          </div>
+          
         </template>
       </div>
     </div>
@@ -22,10 +20,12 @@
       <component :is="componentName"></component>
     </keep-alive>
     <div class="bottom-bar">
-      <div class="bottom-button" @click="btnClick('chat-list','首页')">
-        <img v-if="componentName=='chat-list'" class="bottom-img" src="../assets/首页red.png" />
+      <div class="bottom-button" @click="btnClick('chat-list')">
+        <img v-if="componentName=='chat-list'" class="bottom-img active" src="../assets/首页red.png" />
         <img v-else class="bottom-img" src="../assets/首页.png" />
-        <div class="bottom-title" :class="{active:componentName=='chat-list'}">首页</div>
+        
+          <div class="bottom-title" v-if="componentName=='chat-list'"></div>
+           <div class="bottom-title" v-else>首页</div>
       </div>
       <div class="bottom-button" @click="btnClick('find-list','分类')">
         <img v-if="componentName=='find-list'" class="bottom-img" src="../assets/分类red.png" />
@@ -53,7 +53,7 @@
 
 <script>
 
-import chatList from "./home/ChatList";
+import chatList from "./home/ChatList.vue";
 import contactList from "./home/ContactList.vue";
 import findList from "./home/findList.vue";
 import discoverList from "./home/DiscoverList.vue";
@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       componentName: "chat-list",
-      title: "微信",
+      title: "",
     };
   },
   components: {
@@ -78,9 +78,17 @@ export default {
       this.componentName = componentName;
       this.title = title;
     },
+   
   },
+  
 };
 </script>
 
 <style scoped>
+.bottom-img.active{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+
 </style>

@@ -8,8 +8,7 @@
           </div>
           <div class="top-bar-middle">
             <div class="search-content">
-              <img src="../../assets/search-1.png" alt />
-             
+              <img src="../../assets/search-1.png" alt />             
               <input  type="text" placeholder="P40" >
             </div>
           </div>
@@ -17,28 +16,14 @@
             <a href="#">搜索</a>
           </div>
         </div>
-
         <!-- 热门搜索 -->
-        <div class="middle-content">
+        <div class="middle-content"  >
             <p class="title">热门搜索</p>
-            <div class="phone-title">
-                <a href="https://m.vmall.com/product/10086013232739.html" class="phone">P40</a>
-                <a href="https://m.vmall.com/product/10086557426930.html" class="phone">荣耀30</a>
-                <a href="https://m.vmall.com/product/10086783311507.html" class="phone">nova7</a>
-                <a href="https://m.vmall.com/product/10086768439564.html" class="phone">MateBookD</a>
-               
-            </div>
-            <div class="phone-title">
-                <a href="https://m.vmall.com/product/10086811807933.html" class="phone">荣耀V30</a>
-                <a href="https://m.vmall.com/product/10086403884951.html" class="phone">笔记本新品</a>
-                <a href="https://m.vmall.com/product/10086238753372.html" class="phone">Mate 30</a>
-                
-               
-            </div>
-            <div class="phone-title active">
-                <a href="https://m.vmall.com/product/10086418186714.html" class="phone">MatePad</a>
-                <a href="https://m.vmall.com/product/10086397382774.html" class="phone">荣耀X10</a>
-                <a href="https://m.vmall.com/product/10086412944469.html" class="phone">荣耀平板V6</a>
+            <div class="phone-title" v-for="item in searchList"  :key="item.id" >
+                <a href="https://m.vmall.com/search/index?searchWord=P40" class="phone"  >{{item.namef}}</a>
+                <a href="https://m.vmall.com/product/10086397382774.html" class="phone">{{item.names}}</a>
+                <a href="https://m.vmall.com/product/10086369090195.html" class="phone">{{item.namet}}</a>
+               <a href="https://m.vmall.com/product/10086412944469.html" class="phone">{{item.name}}</a>
             </div>
         </div>
         <div class="bottom-bar"></div>
@@ -48,9 +33,32 @@
 </template>
 <script>
 export default {
- 
-
-         
+ data(){
+   return {
+     searchList:[
+       {
+         namef:"P40",
+         names:"荣耀30",
+         namet:"MateBookD",
+          name:"P30"
+       },
+       {
+          namef:"荣耀v30",
+         names:"笔记本新品",
+         namet:"Mate 30",
+        name:"荣耀2"
+       },
+       {
+           namef:"MatePad",
+         names:"荣耀X",
+         namet:"荣耀V6",
+        name:"荣耀X1"
+       }
+     ],
+     list:[],
+     index:0
+   }
+ }       
 };
  
 </script>
@@ -65,7 +73,6 @@ export default {
 }
 .top-bar {
   width: 100%;
-  /* margin-top: 8px; */
   background-color: #fff;
   display: flex;
   flex-direction: row;
@@ -103,7 +110,6 @@ export default {
   display: flex;
     z-index: 20;
   background-color: rgb(245, 245, 245);
-  /* color: rgba(0, 0, 0, 0); */
 }
 .search-content img {
   width: 30px;
@@ -122,26 +128,26 @@ a {
     width: 100%;
     background-color: #fff;
     margin-top: 20px;
-   
 }
 .title{
     color: rgb(51, 51, 108);
     font-size: 14px;
     font-weight: bold;
     margin-left: 15px;
-   
 }
 .phone-title{
      margin-left: 15px;
        display: flex;
     flex-wrap: nowrap;
     margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .phone{
     background-color: #f5f5f5;
-    height: 20px;
+    white-space: nowrap;
     text-align: center;
-    padding: 0 12px;
+    padding: 5px 12px;
     color: #333;
     font-size: 13px;
     display: inline-block;

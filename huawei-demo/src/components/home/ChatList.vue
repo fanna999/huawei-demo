@@ -1,6 +1,11 @@
 <template>
   <div class="list-wrap" @scroll="scrollAction">
+    <div class="header-splice" >
+      <img src="../../assets/img/splice-1.png" alt=""  @click="del"  v-if="dell">
+    </div>
     <div class="top">
+      <div class="header">
+        <div class="header-box"></div>
       <div class="home-header">
         <div class="header-img">
           <a href>
@@ -28,7 +33,7 @@
           <img src="../../assets/allow_down.png" alt @click="edit" />
         </div>
       </div>
-
+</div>
       <!-- 轮播图 -->
       <loop></loop>
 
@@ -94,6 +99,9 @@
 
     <!-- 各类商品展示部分 -->
   <kind-goods></kind-goods>
+
+  <!-- 最后部分 -->
+  <end-page></end-page>
   
       <!-- 遮罩层 -->
       <div class="shade" v-if="seen">
@@ -138,7 +146,8 @@ import SwiperMore from "../../components/home-page/SwiperMore.vue";
 import NewProduct from "../../components/home-page/NewProduct.vue";
 import ProductExhibition from "../../components/home-page/ProductExhibition.vue";
 import BoutiqueRecom from "../../components/home-page/BoutiqueRecom.vue";
-import KindGoods from "../../components/home-page/KindGoods.vue"
+import KindGoods from "../../components/home-page/KindGoods.vue";
+import EndPage from "../../components/home-page/EndPage.vue";
 export default {
 
   data() {
@@ -149,9 +158,8 @@ export default {
       min: "00",
       second: "00",
 
-     chan:false
-     ,
-   
+     chan:false,
+    dell:true
       
     };
   },
@@ -212,6 +220,14 @@ export default {
    
     cancel.scrollTop=0
 
+ },
+
+ del(){
+   if(this.dell){
+     this.dell=false
+   }else{
+     this.dell=true
+   }
  }
  
 
@@ -223,7 +239,8 @@ export default {
     "new-product": NewProduct,
     "product-exhibition": ProductExhibition,
     "boutique-recom": BoutiqueRecom,
-    "kind-goods":KindGoods
+    "kind-goods":KindGoods,
+    "end-page":EndPage
   },
   created() {
     this.curStartTime = new Date().setSeconds(
@@ -242,20 +259,31 @@ export default {
 .list-wrap {
   background-color: #fff;
 }
+.header{
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 50;
+
+}
+.header-box{
+  width: 100%;
+  height: 8px;
+  background-color: #fff;
+}
 .home-header {
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 8px;
   justify-content: space-between;
-  /* align-self: center; */
   padding: 0 2px;
 }
 
 .header-img {
   width: 73px;
   margin-left: 10px;
-  /* flex-shrink: 0; */
+  
 }
 .header-img img {
   width: 100%;
@@ -459,8 +487,16 @@ a {
   bottom: 10%;
   right: 10%;
   width: 15%;
+  z-index: 100;
 }
 .back-top img{
+  width: 100%;
+}
+.header-splice{
+  width: 100%;
+
+}
+.header-splice img{
   width: 100%;
 }
 </style>

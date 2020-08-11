@@ -1,133 +1,9 @@
 <template>
   <div class="kind-goods">
-    <!-- <div class="newchannel-floor">
-      <div class="no-difference"></div>
-      <div class="header-h">
-        <h2>精选配件</h2>
-      </div>
-      <div class="swiper-container">
-        <img src="../../assets/goods-1.jpg" alt />
-      </div>
-
-      <div class="b">
-        <div class="b-content">
-          <a href>
-            <div class="img-area-big">
-              <p class="p-img-big">
-                <img src="../../assets/goods-2.png" alt />
-              </p>
-              <p class="p-promotion-big">
-                <span>仿生按摩</span>
-              </p>
-            </div>
-            <p class="p-name-big">
-              <span>荣耀亲选舒压随身按摩贴</span>
-            </p>
-            <p class="p-price-big">
-              <span>￥99</span>
-              <del>￥129</del>
-            </p>
-          </a>
-        </div>
-        <div class="b-content">
-          <a href>
-            <div class="img-area-big">
-              <p class="p-img-big">
-                <img src="../../assets/goods-2.png" alt />
-              </p>
-              <p class="p-promotion-big">
-                <span>仿生按摩</span>
-              </p>
-            </div>
-            <p class="p-name-big">
-              <span>荣耀亲选舒压随身按摩贴</span>
-            </p>
-            <p class="p-price-big">
-              <span>￥99</span>
-              <del>￥129</del>
-            </p>
-          </a>
-        </div>
-        <div class="b-content">
-          <a href>
-            <div class="img-area-big">
-              <p class="p-img-big">
-                <img src="../../assets/goods-2.png" alt />
-              </p>
-              <p class="p-promotion-big">
-                <span>仿生按摩</span>
-              </p>
-            </div>
-            <p class="p-name-big">
-              <span>荣耀亲选舒压随身按摩贴</span>
-            </p>
-            <p class="p-price-big">
-              <span>￥99</span>
-              <del>￥129</del>
-            </p>
-          </a>
-        </div>
-        <div class="b-content">
-          <a href>
-            <div class="img-area-big">
-              <p class="p-img-big">
-                <img src="../../assets/goods-2.png" alt />
-              </p>
-              <p class="p-promotion-big">
-                <span>仿生按摩</span>
-              </p>
-            </div>
-            <p class="p-name-big">
-              <span>荣耀亲选舒压随身按摩贴</span>
-            </p>
-            <p class="p-price-big">
-              <span>￥99</span>
-              <del>￥129</del>
-            </p>
-          </a>
-        </div>
-      </div>
-
-      
-      <div class="boutique-content">
-        <div class="swiper-slide" v-for="item in boutiqueList" :key="item.id">
-          <a :href="item.link">
-            <div class="img-area">
-              <p class="p-tag">
-                <span>{{item.title}}</span>
-              </p>
-              <p class="p-img">
-                <img :src="item.img" alt />
-              </p>
-              <p class="p-promotion">{{item.promotion}}</p>
-            </div>
-            <p class="p-name">
-              <span>{{item.name}}</span>
-            </p>
-            <p class="p-price">
-              <span>{{item.price}}</span>
-              <del>{{item.delprice}}</del>
-            </p>
-          </a>
-        </div>
-      </div>
-
-      
-
-      <div class="more-sale">
-        <div class="more-sale-title">
-          <span>发现更多手机</span>
-        </div>
-
-        <div class="more-sale-img">
-          <img src="../../assets/arrow_right.png" alt />
-        </div>
-      </div>
-    </div> -->
      <div class="newchannel-floor" v-for="item in list" :key="item.id">
       <div class="no-difference"></div>
       <div class="header-h">
-        <h2>{{item.selection}}</h2>
+        <div>{{item.selection}}</div>
       </div>
       <div class="swiper-container">
         <img :src="item.swiperImg" alt />
@@ -303,7 +179,7 @@ export default {
  
   created() {
     
-    let url = "http://localhost:5500/src/assets/data/more.json";
+    let url = "http://localhost:5501/src/assets/data/more.json";
     let that = this;
     axios
       .get(url)
@@ -343,6 +219,9 @@ export default {
 .header-h {
   text-align: center;
   padding: 5% 0;
+}
+.header-h>div{
+  font-size: 20px;
 }
 .swiper-container {
   width: 94%;
@@ -467,6 +346,7 @@ a {
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
   margin: 0 auto;
+  font-size: 12px;
 }
 .p-name {
   text-align: center;
@@ -492,6 +372,10 @@ a {
   justify-content: center;
   align-self: center;
   flex-wrap: nowrap;
+}
+.more-sale a{
+  display: flex;
+  align-items: center;
 }
 .more-sale span {
   font-size: 16px;

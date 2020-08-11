@@ -173,6 +173,7 @@ a {
   border-bottom-left-radius: 10%;
    border-bottom-right-radius: 10%;
    margin: 0 auto;
+   font-size: 12px;
 }
 .p-name{
     text-align: center;

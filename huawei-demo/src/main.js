@@ -3,8 +3,6 @@ import App from './App.vue';
 import router from "./router/index.js";
 import VueRouter from 'vue-router';
 Vue.use(VueRouter)
-
-
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 import Swiper, { Navigation, Pagination, Autoplay} from "swiper";

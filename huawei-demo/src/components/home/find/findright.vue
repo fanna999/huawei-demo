@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-size: 12px;
+}
 .substance-nav{
     overflow-y: auto;
     height: 100%;

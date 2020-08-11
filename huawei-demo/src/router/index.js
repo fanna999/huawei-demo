@@ -7,6 +7,7 @@ import home from "../components/Home.vue";
 import DetailsPage from "../components/detailsPage/detailsPage.vue";
 import loginPage from "../components/home/me/loginPage.vue";
 import cartHave from "../components/home/discover/cartHave.vue"
+import Search from "../components/home-page/Search.vue"
 
 const routes = [
     {
@@ -24,7 +25,13 @@ const routes = [
     {
         path:"/cartHave",
         component:cartHave
+    },
+    {
+        path:"/search",
+        component:Search
     }
+
+
 ];
 
 const router = new VueRouter({

@@ -24,6 +24,7 @@
     "better-scroll": "^1.15.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "sass-loader": "^9.0.3",
     "vue-template-compiler": "^2.6.11"
   }
 }

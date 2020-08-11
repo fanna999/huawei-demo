@@ -532,6 +532,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-size: 12px;
+}
 .top-head-one span{
     color: initial;
 }

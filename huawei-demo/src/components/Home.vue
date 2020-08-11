@@ -12,9 +12,7 @@
           </div>
         </template>
         <template v-else>
-          <div class="top-btn">
-            <img src="../assets/首页.png" />
-          </div>
+          
         </template>
       </div>
     </div>
@@ -27,7 +25,7 @@
         <img v-else class="bottom-img" src="../assets/首页.png" />
         <div class="bottom-title" :class="{active:componentName=='chat-list'}">首页</div>
       </div>
-      <div class="bottom-button" @click="btnClick('find-list','分类')">
+      <div class="bottom-button" @click="btnClick('find-list','')">
         <img v-if="componentName=='find-list'" class="bottom-img" src="../assets/分类red.png" />
         <img v-else class="bottom-img" src="../assets/分类.png" />
         <div class="bottom-title" :class="{active:componentName=='find-list'}">分类</div>
@@ -42,7 +40,7 @@
         <img v-else class="bottom-img" src="../assets/购物车.png" />
         <div class="bottom-title" :class="{active:componentName=='discover-list'}">购物车</div>
       </div>
-      <div class="bottom-button" @click="btnClick('me-list','登录/注册')">
+      <div class="bottom-button" @click="btnClick('me-list','')">
         <img v-if="componentName=='me-list'" class="bottom-img" src="../assets/我的red.png" />
         <img v-else class="bottom-img" src="../assets/我的.png" />
         <div class="bottom-title" :class="{active:componentName=='me-list'}">我的</div>
@@ -77,7 +75,7 @@ export default {
     btnClick(componentName, title) {
       this.componentName = componentName;
       this.title = title;
-    },
+    }
   },
 };
 </script>

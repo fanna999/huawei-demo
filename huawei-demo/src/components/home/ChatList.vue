@@ -1,6 +1,6 @@
 <template>
     <div class="list-wrap">
-        我是首页
+        
     </div>
 </template>
 

@@ -2,9 +2,9 @@
     <div class="detail-nav">
         <!-- 头部 -->
         <div class="detail-top" >
-            <div class="detail-top-head">
-                <div class="top-head-left">
-                    <img src="../../assets/fei-1.png" alt="" @click="$router.go(-1)">
+            <div class="detail-top-head"  @click="jumpClick">
+                <div class="top-head-left"  >
+                    <img src="../../assets/fei-1.png" alt="" >
                 </div>
                 <div class="top-head-body"  >
                    
@@ -17,7 +17,7 @@
      <div class="detail-top-content"  v-if="seem">
             <div class="detail-top-head">
                 <div class="top-head-left">
-                    <img src="../../assets/icon_black_1.png" alt="" @click="$router.go(-1)">
+                    <img src="../../assets/icon_black_1.png" alt="" @click="jumpClick">
                 </div>
                 <div class="top-head-body" >
                     <div class="top-head-one" ref="shangping" @click="btnshangping" :class="{'bottom-red':this.scrollTop>0 && this.scrollTop<1145}">
@@ -497,6 +497,9 @@ export default {
         btnxiangqing(){
             this.$refs.acriveOffset.scrollTop = 1519
         },
+        jumpClick(){
+            this.$router.go(-1)
+        }
      },
      data() {
       return {

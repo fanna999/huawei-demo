@@ -32,11 +32,13 @@
         <img v-else class="bottom-img" src="../assets/分类.png" />
         <div class="bottom-title" :class="{active:componentName=='find-list'}">分类</div>
       </div>
-      <div class="bottom-button" @click="btnClick('contact-list','发现')">
+      <a  href="https://m.vmall.com/content/index" class="bottom-button" @click="btnClick('contact-list','发现')">
+       
         <img v-if="componentName=='contact-list'" class="bottom-img" src="../assets/发现red.png" />
         <img v-else class="bottom-img" src="../assets/发现.png" />
+        
         <div class="bottom-title" :class="{active:componentName=='contact-list'}">发现</div>
-      </div>
+      </a>
       <div class="bottom-button" @click="btnClick('discover-list','购物车')">
         <img v-if="componentName=='discover-list'" class="bottom-img" src="../assets/购物车red.png" />
         <img v-else class="bottom-img" src="../assets/购物车.png" />

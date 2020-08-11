@@ -179,7 +179,7 @@ export default {
  
   created() {
     
-    let url = "http://localhost:5501/src/assets/data/more.json";
+    let url = "http://localhost:5500/src/assets/data/more.json";
     let that = this;
     axios
       .get(url)

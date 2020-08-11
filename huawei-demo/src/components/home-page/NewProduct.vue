@@ -20,7 +20,7 @@ export default {
     };
   },
   created() {
-    let url = "http://localhost:5501/src/assets/data/new.json";
+    let url = "http://localhost:5500/src/assets/data/new.json";
     let that = this;
     axios
       .get(url)

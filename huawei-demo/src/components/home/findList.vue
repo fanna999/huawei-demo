@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrap">
     <div class="findhead">
-      <input type="text" placeholder="        荣耀P40" />
+      <input type="text" placeholder="        荣耀P40"  @click="discoverclick"  />
       <img src="../../assets/消息.png" alt />
     </div>
     <div class="find-nav">
@@ -114,7 +114,12 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
-      }
+      },
+      discoverclick() {
+      this.$router.push({
+        path: "/search",
+      }); 
+    },
     
   }
 

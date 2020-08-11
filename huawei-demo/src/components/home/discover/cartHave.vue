@@ -1,103 +1,31 @@
 <template>
 <div class="outer">
-    <div class="dele-hint" v-if="hint">
-        <div class="hint">
-            <p>确定要删除所选商品吗？</p>
-            <ul class="hint-ul">
-                <li class="hint-li" @click="hint=false" style="color:grey;">取消</li>
-                <li class="hint-li" @click="deleShop" style="border-right:none;color:rgb(202,20,29)">确定</li>
-            </ul>
-        </div>
+    <div class="top-cart-fix">购物车
     </div>
-    <div class="top-cart-fix">
-        <p>购物车</p>
-        <div class="edit" @click="edit()">
-            <p v-if="rightEdit" style="font-size:16px">编辑</p>
-            <p v-if="!rightEdit" style="font-size:16px">完成</p>
-        </div>
-        <!-- <button @click="show()">显示</button> -->
-    </div>    
-    <div class="other"></div>
-    <div class="cart-content" v-for="(item,index) in this.$store.state.shoppingList" :key="index">
-        <div class="cart-content-left">
-            <div class="ok" @click="checkOk(index)" >
-                <div class="iconfont red-ok " v-if="item.okSeen==true">&#xe612;
-                     <!-- <div class="edit-cover" v-if="!rightEdit"></div> -->
-                </div>
-            </div>
-            
-            
-            <img :src="item.avatar">
-        </div>
+    <div class="top-cart">
+        <div class="iconfont shopping-cart">&#xe69a;</div>
+        <!-- <button @click="addShop(1)">按我</button> -->
+        <p class="top-cart-p">您的购物车没有商品</p>
+        <div class="to-shop">去购物</div>
         
-        <div class="cart-content-right">
-
-            <p class="whole-name">{{item.wholeName}}</p>
-            <p class="sub-title">{{item.subTitle}}</p>
-            
-            <div class="red-info">
-                <p class="red-info"  v-for="item2 in item.redInfo" :key="item2.id">{{item2}}</p>
-            </div>
-            
-            
-            <div class="price-div">
-                <p class="price">{{item.price}}</p>
-                <div class="add-minus">
-                    <div class="iconfont minus" @click="minus(index)">&#xe66b;</div>
-                    <p class="add-minus-num">{{item.shuliang}}</p>
-                    <div class="iconfont add" @click="add(index)">&#xe666;</div>
-                </div>
-            </div>
-
-            <div class="insert">限购20件</div>
-            <div class="service">
-                <div class="service-left">服务</div>
-                <div class="service-right">
-                    <div class="service-right-detail" v-for="item3 in item.service" :key="item3.id">{{item3}}</div>
-                </div>
-                <p></p>
-            </div>
-
-            <div class="pei">
-                <div class="pei-left">配</div>
-                <div class="pei-right">
-                   <img :src="item.peiImage">
-                   <div class="pei-name">{{item.peiName}}</div>
-                   <div class="pei-number">X{{item.peiNumber}}</div>
-                </div>
-                <p></p>
-            </div>
-        </div>
-        
-              
     </div>
 
-    <div class="fix-bottom">
-        <div class="bottom-left">
-            <div class="ok bottom" @click="checkOkAll" >
-                <div class="iconfont red-ok " v-if="okSeenAll" >&#xe612;
-                    <!-- <div class="edit-cover" v-if="!rightEdit"></div> -->
-                </div>
-                
-            </div>
-             <p>全选</p>
-        </div>
+    <p class="recommand">热销推荐</p>
 
-        <div class="bottom-right" v-if="rightEdit">
-            <p class="bottom-zongji">总计:</p>
-            <p class="bottom-price">￥{{Inprice}}</p>
-
-            <p class="makeSure">结算({{jiesuan}})</p>
-        </div>
-
-        <div class="bottom-right-edit" v-if="!rightEdit" @click="deleHint">
-        删除
-        </div>
+    <div class="recommand-list">
+        <ul class="reco-list-ul">
+            <li class="reco-list-li" v-for="(item,index) in this.$store.state.ShoppingAjaxList" :key="item">
+                <a class="reco-list-a">
+                    <div class="img-container"><img :src="item.avatar"></div>
+                    <div class="iconfont little-shopping-cart" @click="addShop('gouwuche'+(index+1))" >&#xe699;</div>
+                    <p class="shopping-little-p">{{item.name}}</p>
+                    <p class="shopping-price">{{item.price}}</p>
+                </a>
+            </li>
+        </ul>
     </div>
 
-    </div>
-
-
+</div>
   
 </template>
 
@@ -105,618 +33,229 @@
 import store from "../../../store/index.js";
 import axios from "axios";
 export default {
-    props:[],
-    data(){
-    
-        return{
-            okSeenAll:true,
-            // jiesuan:this.$store.state.shoppingList.length
-            rightEdit:true,
-            okbtn:{},
-            hint:false,
-            
-        }
-    },
-    computed:{
-        Inprice(){
-            let price = 0;
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                if(this.$store.state.shoppingList[i].okSeen == true){
-                    price+=parseInt(this.$store.state.shoppingList[i].price.slice(1))*this.$store.state.shoppingList[i].shuliang
-                }
-            }
-            return price
-        },
-        jiesuan(){
-            let countQ = 0;
-            
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                if(this.$store.state.shoppingList[i].okSeen == true){
-                    
-                    countQ+=this.$store.state.shoppingList[i].shuliang;
-                }
-            }
-           return countQ;
-        }
-    },
+   
     methods:{
-        edit()
+        addShop(id)
         {
-            this.rightEdit = !this.rightEdit;
-            this.okSeenAll = false;
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                this.$store.state.shoppingList[i].okSeen = false;
-            }
-            
-            
-        },
-        deleHint()
-        {
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                if (this.$store.state.shoppingList[i].okSeen == true)
-                {
-                    this.hint=!this.hint;
-                    break
-                }
-
-            }
-            
-        },
-        deleShop()
-        {
-            this.$store.commit("deleShop");
-            this.hint = false;
-        },
-        show(){
-            console.log(this.$store.state.shoppingList)
-        },
-        checkOk(n)
-        {
-            
-            
-            let count = 0;
-           
-            this.$store.state.shoppingList[n].okSeen = !this.$store.state.shoppingList[n].okSeen;
-            // if (this.$store.state.shoppingList[n].okSeen==false)
-            // {
-            //     console.log(this.$refs.littleok);
-            // }
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                if(this.$store.state.shoppingList[i].okSeen == true){
-                    count++;
-                    
-                }
-            }
-            // this.jiesuan = count;
-            if (count == this.$store.state.shoppingList.length)
-            {
-                this.okSeenAll = true;
-            } 
-            if (count < this.$store.state.shoppingList.length)
-            {
-                this.okSeenAll = false;
-            } 
-
-           
-        },
-        checkOkAll()
-        {
-            
-            this.okSeenAll = !this.okSeenAll;
-            // console.log(this.$refs.okBtnAll);
-            // if (this.okSeenAll==true)
-            // {
-            //     this.$refs.okBtnAll.style.border="none";
-            // }
-            // if (this.okSeenAll==false)
-            // {
-            //     this.$refs.okBtnAll.style.border="1px solid black";
-            // }
-            
-            
-            
-            for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                this.$store.state.shoppingList[i].okSeen = true;
-            }
-
-            if (this.okSeenAll == false)
-            {
-                for(let i=0;i<this.$store.state.shoppingList.length;i++)
-            {
-                this.$store.state.shoppingList[i].okSeen = false;
-            }
-            }
-
-        },
-        add(i)
-        {
-            
-            this.$store.state.shoppingList[i].shuliang++;
-            this.$store.state.shoppingList[i].peiNumber++;
-            
-        },
-        minus(i)
-        {
-            
-            if (this.$store.state.shoppingList[i].shuliang>=2)
-            {
-                this.$store.state.shoppingList[i].shuliang--;
-            }
-            if (this.$store.state.shoppingList[i].peiNumber>=2)
-            {
-                this.$store.state.shoppingList[i].peiNumber--;
-            }
+            console.log(id);
+            console.log(this.$store.state.ShoppingAjaxList);
+            this.$store.commit("addShop",id)
         }
+        
     }
+ }
 
-}
+
+
 </script>
 
-<style >
-
-.other
+<style scoped>
+*
 {
-    width:100%;
-    height:6.5%;
+    padding:0;
+    margin:0;
+}
+
+
+html,body
+{
+    overflow:auto;
     /* border:1px solid black; */
-    display:none;
-}
-.top-cart-fix p
-{
-    font-size:18px;
-}
-
-.dele-hint
-{
     width:100%;
     height:100%;
-    background-color:rgba(0, 0, 0, 0.315);
+
+}
+.outer
+{
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.top-bar
+{
+    display:none;
+    height:0;
+}
+.bottom-bar
+{
+    z-index:1000;
     
+}
+.top-cart-fix
+{
+    /* border:1px solid black; */
     position:fixed;
     top:0;
-    z-index:1000;
-}
-.hint
-{
-    width:91%;
-    height:17%;
-    background-color:white;
-    opacity:1;
-    margin:530px auto 0;
-    border-radius:10px;
+    width:100%;
+    height:6.5%;
     text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:white;
+    font-size:18px;
+    z-index:100;
 }
-.hint p
+.app
+{
+    /* border:1px solid red; */
+   overflow:auto;
+    width:100%;
+    height:100%;
+    background-color:rgb(249, 249, 249);
+}
+div.outer
 {
     display:inline-block;
-    height:20px;
     width:100%;
-    margin-top:23px;
+    height:100%;
+    background-color:rgb(249, 249, 249);
+    /* background-color:red; */
+    /* border:1px solid black; */
+    
+    
+}
+.iconfont.shopping-cart
+{
+    font-size:70px;
+    color:rgb(153, 153, 153);
+    margin-right:10px;
+    
+}
+.top-cart
+{
+    width:50%;
+    height:35%;
+    /* background-color:red; */
+    margin:0 auto;
+    text-align:center;
+    padding-top:25%;
+}
+p.top-cart-p
+{
+    margin-top:13px;
+    color:rgb(153, 153, 153);
     font-size:15px;
 }
-.hint-ul
+.to-shop
 {
-    display:inline-block;
-    margin-top:28.5px;
-    width:100%;
-    height:25px
-}
-.hint-li
-{
-    border-right:1px solid rgb(202, 202, 202);
-    float:left;
-    width:50%;
-    height:100%;
-    text-align:center;
+    width:90px;
+    height:30px;
+    border:1px solid rgb(153, 153, 153);
+    border-radius:25px;
+    line-height:30px;
+    margin:0 auto;
+    margin-top:10px;
+    color:rgb(102, 102, 102);
     font-size:14px;
 }
-div.edit
+p.recommand
 {
-    position:absolute;
-    right:0;
-    width:60px;
-    color: rgb(136,136,136);
-    font-size:16px;
-    margin-right:10px;
-}
-
-.cart-content
-{
-    margin:0 auto;
-    margin-top:3.5px;
-    width:95%;
-    height:45.5%;
-    background-color:white;
-    border-radius:10px;
-    display:flex;
-
-}
-
-.cart-content img
-{
-    width:85px;
-}
-
-.cart-content-left
-{
-    width:36%;
-    height:30%;
-    /* border:1px solid black; */
-    display:flex;
-    align-items:center;
-    margin-top:24px;
-    padding-left:19px;
-    
-}
-
-.cart-content-right
-{
-    width:64%;
-    height:80%;
-    /* border:1px solid black; */
-    margin-top:22px;
-
-}
-
-div.red-info
-{
-    width:100%;
-    height:15px;
-    /* border:1px solid red; */
-    display:flex;
-    align-items:center;
-    margin-top:11px;
-    overflow:hidden;
-}
-p.red-info
-{
-    
-    font-size:7px;
-    color:red;
-    border:1px solid red;
-    width:60px;
-    height:15px;
     text-align:center;
-    border-radius:10px;
-    line-height:15px;
-    margin-left:3px;
+    display:inline-bloack;
+    width:100%;
+    height:auto;
+    /* border:1px solid black; */
+    font-size:17px;
+    font-weight:bold;
+    color:rgb(51,51,51);
+    margin-top:67px;
 }
-.ok
-{
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    border:1px solid black;
-    margin-left:-4px;
-    flex-shrink:0;
-
-}
-
-.cart-content-left img
-{
-    /* border:1px solid red; */
-    margin-left:5px;
-}
-
-p.whole-name
+.recommand-list
 {
     width:100%;
-    /* border:1px solid black; */
-    font-size:13px;
+    height:300px;
+    display:flex;
    
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+ul,li
+{
+    list-style:none;
+    width:100%;
+    height:auto;
+    
+}
+ul.reco-list-ul
+{
+    margin-top:15px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    width:96%;
+    float:left;
+    text-align:center;
+    /* border:1px solid red; */
+    height:731px;
+}
+li.reco-list-li
+{
+
+    float:left;
+    /* border:1px solid black; */
+    width:49%;
+    height:32%;
+}
+a
+{
+    text-decoration:none;
 }
 
-p.sub-title
+a.reco-list-a
 {
+    
+    width:100%;
+    height:100%;
+    background-color:white;
+    display:inline-block;
+    margin-bottom:8px;
+    border-radius:10px;
+    position:relative;
+    
+}
+
+a.reco-list-a img
+{
+    margin-top:9%;
+    width:78%;
+    height:auto;
+    /* border:1px solid black; */
+}
+
+.iconfont.little-shopping-cart
+{
+    width:22px;
+    height:22px;
+    text-align:center;
+    line-height:22px;
+    position:absolute;
+    /* border:1px solid black; */
+    border-radius:50%;
+    top:3%;
+    right:3%;
+    font-size:11px;
+    color:black;
+    background-color:rgb(243, 243, 243);
+    padding-right:2px;  
+    font-weight:bold;
+}
+.img-container
+{
+    /* border:1px solid red; */
+}
+p.shopping-little-p
+{
+    color:black;
     font-size:12px;
     margin-top:7px;
 }
-
-.price-div
+p.shopping-price
 {
-    width:100%;
-    height:30px;
-    /* border:1px solid black; */
-    margin-top:15px;
-    display:flex;
-    align-items:center;
-}
-
-p.price
-{
-    
-    font-size:16px;
+    margin-top:5px;
     color:rgb(202,20,29);
-    font-weight:600;
-    
+    font-weight:bold;
+    font-size:15px;
 }
-
-.add-minus
-{
-    
-    margin-left:68px;
-    width:43%;
-    height:100%;
-    /* border:1px solid black; */
-    display:flex;
-    justify-content:space-evenly;
-    align-items:center;
-}
-
-
-.iconfont.minus,.add-minus-num,.iconfont.add
-{
-    width:33%;
-    border:1px solid grey;
-}
-
-.add-minus-num
-{
-    font-size:13px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    border:none;
-}
-
-.iconfont.minus,.iconfont.add
-{
-    border-radius:50%;
-    width:25px;
-    height:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center
-}
-
-.add-minus-num
-{
-    text-align:center;
-    height:20px;
-    line-height:21px;
-}
-
-.insert
-{
-    width:100%;
-    /* border:1px solid black; */
-    display:flex;
-    justify-content:flex-end;
-    font-size:12px;
-    color:rgb(202,20,29);
-    padding-right:10px;
-}
-
-.iconfont.red-ok
-{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    color:white;
-    background-color:rgb(202,20,29);
-    font-weight:600;
-    /* border:1px solid black; */
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-}
-
-.fix-bottom
-{
-    position:fixed;
-    bottom:58px;
-    width:100%;
-    height:6.5%;
-    /* border:1px solid black; */
-    display:flex;
-    align-items:center;
-    background-color:white;
-    justify-content:space-between;
-}
-
-
-
-.bottom-right
-{
-    flex-shrink:0;
-    height:100%;
-    display:flex;
-    align-items:center;
-}
-.fix-bottom .bottom-right
-{
-    /* width:220px; */
-    display:flex;
-    float:right;
-    /* border:1px solid black; */
-    /* margin-left:40px; */
-    justify-content:space-between;
-}
-
-p.bottom-zongji
-{
-    /* display:inline-block; */
-    /* width:60px; */
-    height:50%;
-    /* border:1px solid black; */
-    font-size:17px;
-}
-p.bottom-price
-{
-    /* display:inline-block; */
-    /* width:80px; */
-    height:50%;
-    color:rgb(202,20,29);
-    /* margin-left:-13px; */
-    font-weight:600;
-    /* border:1px solid black; */
-    font-size:17px;
-    margin-right:5px;
-    margin-left:5px;
-}
-
-p.makeSure
-{
-    width:90px;
-    height:85%;
-    background-image:linear-gradient(to right , rgb(235, 69, 56), rgb(220,29,44)   );
-    text-align:center;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-right:6px;
-    color:white;
-    /* font-weight:600; */
-    font-size:16px;
-    
-}
-
-.bottom-right-edit
-{
-    width:93px;
-    height:38px;
-    border:1px solid black;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-right:10px;
-    margin-top:2px;
-    font-size:15.5px;
-}
-.edit-cover
-{
-    flex-shrink:0;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background-color:white;
-    margin-left:-16px;
-    margin-top:0px;
-    z-index:600;
-    flex-grow:1;
-}
-
-.bottom-left
-{
-    width:70px;
-    display:flex;
-    margin-left:17px;
-    justify-content:center;
-    /* border:1px solid black; */
-}
-
-.ok.bottom
-{
-    margin-right:10px;
-}
-
-.bottom-left p
-{
-    font-size:13px;
-    color:grey;
-}
-
-.service-left
-{
-    /* border:1px solid blue; */
-    width:40px;
-    font-size:12px;
-}
-
-.service
-{
-    width:100%;
-    height:35px;
-    /* border:1px solid black; */
-    display:flex;
-    align-items:center;
-}
-.service-right
-{
-    justify-content:space-between;
-    /* border:1px solid blue; */
-    display:flex;
-    width:135px;
-    overflow:hidden;
-    box-shadow:0 0 10px 2px white inset;
-    margin-top:2px;
-    
-}
-.service-right-detail
-{
-    border:1px solid grey;
-    display:inline-block;
-    font-size:12px;
-    padding:0 4.8px;
-    flex-shrink:0;
-    margin-right:7px;
-    height:20px;
-    line-height:18px;
-    text-align:center;
-}
-
-.pei
-{
-     width:100%;
-    height:35px;
-    /* border:1px solid black; */
-    display:flex;
-    align-items:center;
-    
-}
-.pei-right img
-{
-    width:20px;
-    height:auto;
-    /* border:1px solid black; */
-    display:inline-block;
-    flex-shrink:0;
-}
-.pei-left
-{
-    /* border:1px solid blue; */
-    width:40px;
-    font-size:12px;
-}
-
-.pei-right
-{
-    justify-content:space-between;
-    /* border:1px solid blue; */
-    display:flex;
-    width:80%;
-    overflow:hidden;
-    box-shadow:0 0 10px 2px white inset;
-    margin-top:2px;
-}
-
-.pei-number
-{
-    /* border:1px solid black; */
-    font-size:12px;
-    
-}
-
-.pei-name
-{
-    /* border:1px solid black; */
-     text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size:12px;
-    width:67%;
-    margin-right:10px;
-}
-
 
 </style>

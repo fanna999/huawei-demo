@@ -47,5 +47,13 @@ export default {
 </script>
 
 <style scoped>
+.app
+{
+    /* border:1px solid black; */
+    height:100%;
+    overflow:auto;
+    width:100%;
+}
+
 
 </style>

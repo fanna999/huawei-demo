@@ -19,11 +19,12 @@
         </div>
 
         <div class="login-input-content">
-                  <input type="text" placeholder="手机号" onkeyup="value=value.replace(/[^\d]/g,'')">
-                  <input type="text" placeholder="短信验证码" style="margin-top:15px">
+                  <input type="text" v-model="phone" placeholder="手机号" onkeyup="value=value.replace(/[^\d]/g,'')">
+                  <input type="text" v-model="password" placeholder="短信验证码" style="margin-top:15px">
+              
               </div>
 
-        <div class="login-btn">
+        <div ref="loginBtn" class="login-btn" @click="login">
             登录/注册
 
         </div>
@@ -57,12 +58,69 @@
 </template>
 
 <script>
+import axios from "axios";
+import store from "../../../store/index.js"
 export default {
+     store,
+    data(){
+        return{
+            phone:"",
+            password:"",
+            
+        }
+    },
+    watch:{
+        'phone'(newVal)
+        {
+            // console.log(this.$refs.loginBtn.style);
+            if (newVal!="" && this.password!="")
+            {
+                this.$refs.loginBtn.tyle.backgroundColor="rgb(0,125,255)"
+            }
+            else
+            {
+                this.$refs.loginBtn.style.backgroundColor="rgb(159,206,255)";
+            }
+        },
+        'password'(newVal)
+        {
+            if (newVal!="" && this.password!="")
+            {
+                this.$refs.loginBtn.style.backgroundColor="rgb(0,125,255)"
+            }
+            else
+            {
+                this.$refs.loginBtn.style.backgroundColor="rgb(159,206,255)";
+            }
+        }
+    },
+    
+    methods:{
+        login(){
+            // console.log(this.$root.$el.clientWidth*0.95);
 
+            
+            if (this.phone=="13732623230" && this.password=="1234")
+            {
+                this.$store.state.melist[0].login = true;
+                this.$router.replace("/");
+                // console.log(this.$store.state.melist);
+                }
+        }
+       
+    }
 }
 </script>
 
-<style scope>
+<style scoped>
+ul,li
+{
+    list-style:none
+}
+a
+{
+    text-decoration: none;
+}
 .login-outer
 {
     width:100%;
@@ -140,6 +198,7 @@ p.login-input-top-left
     /* border:1px solid brown; */
     display:inline-block;
     color:rgb(25,25,25);
+    font-size:16px;
     
 }
 
@@ -167,8 +226,9 @@ p.login-input-top-left
     outline-style: none;
 }
 
-.login-btn
+div.login-btn
 {
+    display:inline-block;
     width:97%;
     height:35px;
     border-radius:25px;
@@ -178,6 +238,7 @@ p.login-input-top-left
     margin-top:55px;
     text-align:center;
     line-height:35px;
+    border:1px solid balck;
     
 }
 

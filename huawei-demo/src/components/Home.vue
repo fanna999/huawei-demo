@@ -39,7 +39,7 @@
         
         <div class="bottom-title" :class="{active:componentName=='contact-list'}">发现</div>
       </a>
-      <div class="bottom-button" @click="btnClick('discover-list','购物车')">
+      <div class="bottom-button" @click="btnClick('discover-list','')">
         <img v-if="componentName=='discover-list'" class="bottom-img" src="../assets/购物车red.png" />
         <img v-else class="bottom-img" src="../assets/购物车.png" />
         <div class="bottom-title" :class="{active:componentName=='discover-list'}">购物车</div>
@@ -90,6 +90,8 @@ export default {
   width: 2.5rem;
   height: 2.5rem;
 }
-
+a{
+  text-decoration: none;
+}
 
 </style>

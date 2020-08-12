@@ -417,6 +417,7 @@ export default {
      },
      watch:{
          '$route.query.id'(){
+             
             let id = this.$route.query.id;
             let url = "http://localhost:5500/src/data/xiangqing/"+id+".json";
 
@@ -613,6 +614,7 @@ export default {
 .detail-top-head{
     width: 100%;
     display: flex;
+    z-index: 2;
     flex-direction: row;
     justify-content: space-between;
 }

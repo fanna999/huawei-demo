@@ -8,7 +8,7 @@
               <img src="../../assets/haoping.jpg" alt="">
             </div>
             <div class="username-box-name">
-              <p>凌风</p>
+              <p>稚苓</p>
               <p>
                 <img src="../../assets/xing.png" alt="">
               </p>
@@ -52,7 +52,7 @@
               <img src="../../assets/haoping.jpg" alt="">
             </div>
             <div class="username-box-name">
-              <p>凌风</p>
+              <p>稚苓</p>
               <p>
                 <img src="../../assets/xing.png" alt="">
               </p>

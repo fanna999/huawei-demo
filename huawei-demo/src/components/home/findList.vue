@@ -33,7 +33,7 @@ import findright from "./find/findright.vue";
 
 export default {
   created(){
-    let url = "http://localhost:5500/dist/data/findleft.json";
+    let url = "http://localhost:5500/src/data/findleft.json";
     let that = this;
     axios.get(url)
     .then(function (response) {

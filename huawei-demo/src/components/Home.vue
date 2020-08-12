@@ -90,6 +90,8 @@ export default {
   width: 2.5rem;
   height: 2.5rem;
 }
-
+a{
+  text-decoration: none;
+}
 
 </style>

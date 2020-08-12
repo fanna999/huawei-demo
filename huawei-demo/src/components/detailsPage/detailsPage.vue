@@ -417,6 +417,7 @@ export default {
      },
      watch:{
          '$route.query.id'(){
+             
             let id = this.$route.query.id;
             let url = "http://localhost:5500/src/data/xiangqing/"+id+".json";
 

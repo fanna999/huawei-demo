@@ -49,12 +49,13 @@ export default {
 
 </script>
 
-<style scope>
+<style scoped>
 *
 {
     padding:0;
     margin:0;
 }
+
 
 html,body
 {
@@ -63,6 +64,22 @@ html,body
     width:100%;
     height:100%;
 
+}
+.outer
+{
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.top-bar
+{
+    display:none;
+    height:0;
+}
+.bottom-bar
+{
+    z-index:1000;
+    
 }
 .top-cart-fix
 {
@@ -116,8 +133,9 @@ div.outer
 }
 p.top-cart-p
 {
-    margin-top:10px;
-    color:rgb(153, 153, 153)
+    margin-top:13px;
+    color:rgb(153, 153, 153);
+    font-size:15px;
 }
 .to-shop
 {
@@ -237,6 +255,7 @@ p.shopping-price
     margin-top:5px;
     color:rgb(202,20,29);
     font-weight:bold;
+    font-size:15px;
 }
 
 </style>

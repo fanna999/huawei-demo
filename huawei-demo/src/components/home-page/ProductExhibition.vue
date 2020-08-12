@@ -2,12 +2,12 @@
   <div class="pro-exhibition">
     <!-- 商品展示图片部分 -->
     <div class="pro-ex-frist" v-for="item in imgList" :key="item.id">
-      <div class="pro-ex-content">
+      <div class="pro-ex-content" @click="p40btn(item.id1)">
         <img :src="item.imagef" alt />
       </div>
       <div class="pro-ex-content-f">
-        <img :src="item.images" alt />
-        <img :src="item.imaget" alt />
+        <img :src="item.images" @click="p40btn(item.id2)" alt />
+        <img :src="item.imaget" @click="p40btn(item.id3)" alt />
       </div>
     </div>
     <!-- 商品展示实物部分 -->
@@ -68,6 +68,9 @@ export default {
     return {
       imgList: [
         {
+          id1:"HUAWEI-P40-5G",
+          id2:"ryPlay4-Pro-5G",
+          id3:"ry30qcb-5G",
           imagef: require("../../assets/Nova-1.png"),
           images: require("../../assets/Nova-2.jpg"),
           imaget: require("../../assets/Nova-3.jpg"),
@@ -111,7 +114,18 @@ export default {
 
       ]
     };
+
   },
+  methods:{
+    p40btn(id){
+      this.$router.push({
+        path:"/detailspage",
+                    query:{
+                        id:id
+                    }
+      })
+    }
+  }
 };
 </script>
 <style  scoped>

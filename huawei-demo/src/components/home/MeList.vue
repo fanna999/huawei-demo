@@ -1,5 +1,5 @@
 <template>
-  <div class="outer" ref="screen" @scroll="fix">
+  <div class="outer" ref="screen" @scroll="fix()">
       <div class="fix-right" v-if="fixRight"  @click="backToTop">
         <img src="../../assets/me/button-top.png" alt="">
       </div>
@@ -8,7 +8,8 @@
           <div class="fix" ref="fix" :style="fixStyle">
               <div class="fixLeft" v-if="fixLeft">
                 <img src="../../assets/me/defaultface_user_after.png" alt="">
-                登录/注册
+              
+                <router-link to="/login">{{melist.phone | phoneF}}</router-link>
               </div>
               <div class="fix-inner">
               <div class="iconfont setting">&#xe705;</div>
@@ -20,7 +21,8 @@
           </div>
           <router-link class="login" to="/login">
             <img src="../../assets/me/defaultface_user_after.png" alt="">
-            <p class="login-p">登录/注册</p>
+             <!-- <p to="/login" v-if="phonelogin">{{melist.phone}}</p> -->
+            <p class="login-p" >{{melist.phone | phoneF}}</p>
             <div class="qiandao">
                 <img src="../../assets/me/日历.png" alt="">
                 <p>签到领积分</p>
@@ -30,15 +32,15 @@
           <div class="jifen">
               <ul class="jifen-ul">
                   <li class="jifen-li"><a href="" class="jifen-a">
-                      <p class="jifen-number">-</p>
+                      <p class="jifen-number" style="font-size:16px">{{melist.jifen}}</p>
                       <p class="jifen-name">积分</p>
                       </a></li>
                   <li class="jifen-li"><a href="" class="jifen-a">
-                      <p class="jifen-number">-</p>
+                      <p class="jifen-number" style="font-size:16px">{{melist.youhui}}</p>
                       <p class="jifen-name">优惠券</p>
                       </a></li>
                   <li class="jifen-li" style="border-right:none"><a href="" class="jifen-a">
-                      <p class="jifen-number">-</p>
+                      <p class="jifen-number" style="font-size:16px">{{melist.daijin}}</p>
                       <p class="jifen-name">代金券</p>
                       </a></li>
               </ul>
@@ -49,7 +51,7 @@
               <p class="left">我的订单</p>
               <div class="right">
                   <p>全部订单</p>
-                  <div class="iconfont right">&#xe668;</div>
+                  <div class="iconfont right r">&#xe668;</div>
               </div>
           </div>
           <div class="my-order-icon">
@@ -76,10 +78,10 @@
           <div class="my-order-swiper">
             <template>
               <swiper ref="mySwiper" :options="swiperOptions">
-                <swiper-slide>
+                <swiper-slide class="slide">
                   <img src="../../assets/me/52960608369510606925.jpg" alt="">
                 </swiper-slide>
-                <swiper-slide>
+                <swiper-slide class="slide">
                   <img src="../../assets/me/90751608369510615709.jpg" alt="">
                 </swiper-slide>
                 
@@ -95,7 +97,7 @@
               <p class="left">会员专享</p>
               <div class="right vip-r">
                   <p>更多会员权益</p>
-                  <div class="iconfont right">&#xe668;</div>
+                  <div class="iconfont right r">&#xe668;</div>
               </div>
           </div>
         </div>
@@ -204,7 +206,7 @@
               <p class="left">我的服务</p>
               <div class="right service-r">
                   <p>联系客服</p>
-                  <div class="iconfont right">&#xe668;</div>
+                  <div class="iconfont right r">&#xe668;</div>
               </div>
           </div>
         </div>
@@ -291,7 +293,7 @@
       <div class="end">
         <div class="end-top">
           <ul class="end-top-ul">
-            <li class="end-top-li"><a href="" class="end-top-a">登录</a></li>
+            <li class="end-top-li"><router-link href="" class="end-top-a" to="/login">登录</router-link></li>
             <li class="end-top-li"  style="border-right:none"><a href="" class="end-top-a">反馈</a></li>
           </ul>
         </div>
@@ -332,6 +334,7 @@
             19015064号 粤公网安备 44190002003939号 增值电信业务经营许可证:粤B2-20190762
           </p>
         </div>
+        <!-- {{melist}} -->
 
         </div>
       </div>
@@ -341,16 +344,17 @@
 
 
 <script>
+import axios from "axios";
+import store from "../../store/index.js"
 export default {
-  created(){
-    console.log(this.$root.$el.clientWidth*0.95)
-  },
+  
+  store,
   mounted(){
+    
     this.screen = this.$refs.screen;
+    console.log(this.$store.state.melist[0].login);
   },
-  // activated(){
-  //   this.screen.scrollTop = this.scrollTT;
-  // },
+  
   
   data() {
       return {
@@ -364,8 +368,8 @@ export default {
             disableOnInteraction:false
           },
           loop:true,
-          
-          width:this.$root.$el.clientWidth*0.92
+          freeMode:true,
+          width:this.$root.$el.clientWidth*0.97
           // Some Swiper option/callback...
         },
         fixLeft:false,
@@ -373,9 +377,62 @@ export default {
         },
         fixRight:false,
         screen:null,
-        // scrollTT:0
+       
+        phone:"登录/注册",
+        jifen:"-",
+        youhui:"-",
+        daijin:"-",
+
+        phonelogin:false
+       
       }
     },
+  
+    computed:{
+      // login(){
+      //   return this.$store.state.melist[0].login
+      // }
+
+      melist(){
+         
+            let that = this;
+            if (that.$store.state.melist[0].login == false)
+            {
+              return {
+                "phone":"登录/注册",
+                "jifen":"-",
+                "youhui":"-",
+                "daijin":"-",
+                "login":false
+              }
+              
+            }
+            else 
+            {
+              return that.$store.state.melist[0];
+            }
+          
+          
+        }
+  },
+
+  filters:{
+    phoneF(value){
+      if (value.length==11)
+      {
+        let newL = value.split("");
+      newL.splice(3,6,"*******");
+      return newL.join("")
+      }
+      else
+      {
+        return value
+      }
+      
+    }
+  },
+    
+    
     methods:{
       fix()
       {
@@ -398,6 +455,7 @@ export default {
         }
         if (event.target.scrollTop>0)
         {
+          console.log("scrolled");
             this.fixLeft = true;
             this.fixStyle = {
             backgroundImage:"linear-gradient(to right, rgb(220,29,44) 5% , rgb(235, 69, 56)   )",
@@ -421,12 +479,19 @@ export default {
         this.screen.scrollTop = 0;
       }
     }
+  }
+
   
 
-}
+
 </script>
 
 <style scoped>
+.fixLeft a
+{
+  color:white;
+  font-size:17px;
+}
 .outer
 {
   overflow-y:auto;
@@ -456,7 +521,7 @@ export default {
     display:flex;
     justify-content:center;
     /* border:1px solid black; */
-
+    /* overflow:hidden; */
     
 }
 .red-one
@@ -468,7 +533,8 @@ export default {
     margin:0 auto;
     flex-shrink: 0;
     position:absolute;
-    top:-798px;
+    /* top:-799px; */
+    bottom:7.5%;
     
 
 }
@@ -676,6 +742,7 @@ p.jifen-name
 }
 p.left
 {
+  margin-top:15px;
     font-weight:600;
     font-size:15px;
     margin-left:10px;
@@ -684,6 +751,7 @@ p.left
 
 div.right
 {
+  margin-top:8px;
     position:absolute;
     right:0;
     /* border:1px solid black; */
@@ -691,7 +759,7 @@ div.right
     width:100px;
     height:30px;
     justify-content:space-around;
-    align-items:center;
+    /* align-items:center; */
     margin-right:4px;
 }
 .right p
@@ -709,14 +777,14 @@ div.right
 
 }
 
-.iconfont.right
+div.iconfont.right.r
 {
     width:15px;
     height:15px;
     /* border:1px solid blue; */
     font-size:12px;
-    vertical-align:bottom;
-    color:rgb(102,102,102)
+    color:rgb(102,102,102);
+    
 }
 
 .my-order-icon
@@ -725,10 +793,24 @@ div.right
   height:63px;
   /* background-color:red; */
   margin:0 auto;
+  margin-top:12px;
   display:flex;
   align-items:center;
 }
+.slide
+{
+  margin-left:-1px;
+}
+ul,li
+{
+  list-style: none;
+}
 
+ul.order-icon-ul
+{
+  /* border:1px solid red; */
+  width:100%;
+}
 
 li.order-icon-li
 {
@@ -785,9 +867,11 @@ div.order-icon-div
   width:95%;
   margin:0 auto;
   height:96px;
-  margin-top:20px;
+  margin-top:10px;
   overflow:hidden;
   border-radius:5px;
+  display:flex;
+  justify-content:flex-start;
 }
 .my-order-swiper img
 {

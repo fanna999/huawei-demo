@@ -7,6 +7,8 @@ const store = new Vuex.Store({
     state:{
         ajax:[],
         ShoppingAjaxList:[
+                           
+    
                 {
                     "id": "gouwuche1",
                     "name": "HUAWEI P40 Pro", 
@@ -17,11 +19,11 @@ const store = new Vuex.Store({
                      "okSeen":true,
                      "shuliang":1,
                      "redInfo":["分期免息","赠送积分"],
-                     "service":{
-                         "无忧服务":["华为无忧服务￥1299"],
-                         "碎屏保":["碎屏(含后盖)服务宝1年￥319.20",3000],
-                         "延长保":["延长服务宝1年￥294.40",368]
-                     },
+                     "service":[
+                         "无忧服务",
+                         "碎屏保",
+                         "延长保"
+                     ],
                      "peiImage":require("../assets/pei/428_428_FF9B85501BF55D36F9777940BF989D4DA692B1979AB0A2C9mp.png"),
                      "peiNumber":1,
                      "peiName":"HUAWEI P40 Pro硅胶保护壳(墨蓝)"
@@ -65,8 +67,15 @@ const store = new Vuex.Store({
                 }
                     
                 ],
-        shoppingList:[]
-    },
+        shoppingList:[],
+        melist:[{
+        "phone":"13732623230",
+        "jifen":0,
+        "youhui":0,
+        "daijin":"0.00",
+        "login":false
+        }]      
+        },
     mutations:{
         addShop(state,id)
         {
@@ -81,6 +90,7 @@ const store = new Vuex.Store({
                 }
             };
             this.state.shoppingList.push(this.state.ShoppingAjaxList[index]);
+           
             // this.state.shoppingList.push(this.state.ShoppingAjaxList[1]);
           
             console.log(this.state.shoppingList);

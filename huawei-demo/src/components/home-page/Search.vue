@@ -4,7 +4,7 @@
       <div class="content">
         <div class="top-bar">
           <div class="top-bar-left">
-            <img src="../../assets/allow_left.png" alt @click="$router.go(-1)" />
+          <img src="../../assets/allow_left.png" alt                                                                                @click="$router.go(-1)" />
           </div>
           <div class="top-bar-middle">
             <div class="search-content">
@@ -20,15 +20,13 @@
         <div class="middle-content">
           <p class="title">热门搜索</p>
           <div class="phone-title">
-         
             <a
-              href="https://m.vmall.com/product/10086013232739.html"
+              href="#"
               class="phone"
               v-for="(item,index) in searchList"
-              :key="item.index"
+             :key="item.id"
               @click="searchClick(index)"
-            >{{item.name}}</a>
-           
+            >{{item.historyName}}</a>
           </div>
         </div>
       </div>
@@ -40,8 +38,8 @@
             <div class="title-left">搜索历史</div>
             <div class="title-right" @click="clearClick">清空</div>
           </div>
-          <div class="searchHistory" v-for="item in historList" :key="item.id">
-            <div>{{item.name}}</div>
+          <div class="searchHistory" v-for="item in historyList" :key="item.id">
+            <div>{{item.historyName}}</div>
           </div>
         </div>
       </div>
@@ -54,90 +52,107 @@ export default {
     return {
       searchList: [
         {
-          name: "P40",
+          historyName: "P40",
           link: "https://m.vmall.com/product/10086013232739.html",
         },
         {
-          name: "荣耀30",
+          historyName: "荣耀30",
           link: "https://m.vmall.com/product/10086557426930.html",
         },
         {
-          name: "MateBookD",
+          historyName: "MateBookD",
           link: "https://m.vmall.com/product/10086987238313.html",
         },
         {
-          name: "P30",
+          historyName: "P30",
           link: "https://m.vmall.com/product/10086385608674.html",
         },
         {
-          name: "荣耀v30",
+          historyName: "荣耀v30",
           link: "https://m.vmall.com/product/10086811807933.html",
         },
         {
-          name: "笔记本新品",
+          historyName: "笔记本新品",
           link: "https://m.vmall.com/product/10086369090195.html",
         },
-        { name: "Mate 30",
-        link:"https://m.vmall.com/product/10086727877036.html"
-        },
-        { name: "荣耀2",
-        link:"https://m.vmall.com/product/10086779543890.html" },
         {
-          name: "MatePad",
-          link:"https://m.vmall.com/product/10086418186714.html"
+          historyName: "Mate 30",
+          link: "https://m.vmall.com/product/10086727877036.html",
         },
-        { name: "荣耀X" ,
-        link:"https://m.vmall.com/product/10086397382774.html"},
         {
-          name: "荣耀V6",
-          link:"https://m.vmall.com/product/10086412944469.html"
+          historyName: "荣耀2",
+          link: "https://m.vmall.com/product/10086779543890.html",
+        },
+        {
+          historyName: "MatePad",
+          link: "https://m.vmall.com/product/10086418186714.html",
+        },
+        {
+          historyName: "荣耀X",
+          link: "https://m.vmall.com/product/10086397382774.html",
+        },
+        {
+          historyName: "荣耀V6",
+          link: "https://m.vmall.com/product/10086412944469.html",
         },
       ],
       searchSeen: false,
-      historList: [],
+      historyList: [],
       newList: [],
     };
   },
   methods: {
     searchClick(index) {
-      console.log(index);
+      // console.log(index);
 
-      this.historList.push(this.searchList[index]);
-      this.historList.reverse();
+      if (!this.historyList.includes(this.searchList[index])) {
+        this.historyList.unshift(this.searchList[index]);
+        localStorage.setItem("historyList", JSON.stringify(this.historyList));
+      } else {
+       
+        this.historyList.splice(this.historyList.indexOf(this.searchList[index]), 1);
+        this.historyList.unshift(this.searchList[index]);
+        localStorage.setItem("historyList", JSON.stringify(this.historyList));
+     console.log(this.historyList.indexOf(this.searchList[index]))
+      }
 
-      for (let i = 0; i < this.historList.length; i++) {
-        if (this.historList.length !== 0) {
+      for (let i = 0; i < this.historyList.length; i++) {
+        if (this.historyList.length !== 0) {
           this.searchSeen = true;
         } else {
           this.searchSeen = false;
         }
       }
-
-      localStorage.setItem("historList", JSON.stringify(this.historList));
+      localStorage.setItem("historyList", JSON.stringify(this.historyList));
     },
     clearClick() {
-      if (this.historList) {
-        this.historList = [];
+      if (this.historyList) {
+        this.historyList = [];
+        localStorage.setItem("historyList", JSON.stringify(this.historyList));
         this.searchSeen = false;
       }
     },
   },
   created() {
-    let historList = JSON.parse(localStorage.getItem("historList"));
-    if (historList) {
-      this.historList = historList;
+    let historyList = JSON.parse(localStorage.getItem("historyList"));
+    if (historyList) {
+      this.historyList = historyList;
     }
   },
   watch: {
-    "historList.length": {
-      handler(historList) {
-        if (this.historList.length !== 0) {
+    "historyList.length": {
+      handler(historyList) {
+        if (this.historyList.length !== 0) {
           this.searchSeen = true;
         } else {
           this.searchSeen = false;
         }
+       
       },
-    },
+    }
+    
+   
+   
   },
 };
 </script>

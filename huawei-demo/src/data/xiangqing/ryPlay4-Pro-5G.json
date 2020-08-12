@@ -2,7 +2,7 @@
     "code": 200, 
     "status": "成功", 
     "shoppingid":"HUAWEI-P40-5G",
-    "lunbotu":["http://localhost:5500/dist/assets/pone-1.png","http://localhost:5500/dist/assets/pone-2.png","http://localhost:5500/dist/assets/pone-3.png","http://localhost:5500/dist/assets/pone-4.png","http://localhost:5500/dist/assets/pone-5.png","http://localhost:5500/dist/assets/pone-6.png"],
+    "lunbotu":["http://localhost:5500/src/assets/pone-1.png","http://localhost:5500/src/assets/pone-2.png","http://localhost:5500/src/assets/pone-3.png","http://localhost:5500/src/assets/pone-4.png","http://localhost:5500/src/assets/pone-5.png","http://localhost:5500/src/assets/pone-6.png"],
     "num":1,
     "shopping":{
         "Price":5899,
@@ -23,22 +23,22 @@
         "mianxi":"掌上生活/花呗分期直购，最高享12期免息 ",
         "dapei":[
            {
-            "img":"http://localhost:5500/dist/assets/headset-7.png",
+            "img":"http://localhost:5500/src/assets/headset-7.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-7.png",
+            "img":"http://localhost:5500/src/assets/headset-7.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-7.png",
+            "img":"http://localhost:5500/src/assets/headset-7.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-7.png",
+            "img":"http://localhost:5500/src/assets/headset-7.png",
             "item":"省100",
             "jia":""
            }
@@ -63,22 +63,22 @@
         "haoping":" 98%",
         "user":[
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             },
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             },
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             }
             
         ]
@@ -87,7 +87,7 @@
         "chuanboming":"HUAWEI P40",
         "houzhi":"超感知徕卡三摄：5000万像素超感知摄像头（广角， f/1.9光圈 ）+ 1600万像素超广角摄像头（f/2.2光圈）+ 800万像素长焦摄像头（f/2.4光圈，支持OIS光学防抖）"
     },
-    "gouji":["http://localhost:5500/dist/assets/parameter-1.jpg","http://localhost:5500/dist/assets/parameter-2.jpg","http://localhost:5500/dist/assets/parameter-3.jpg"],
-    "tuijian":["http://localhost:5500/dist/assets/hou01.jpg","http://localhost:5500/dist/assets/hou02.jpg","http://localhost:5500/dist/assets/hou03.jpg"]
+    "gouji":["http://localhost:5500/src/assets/parameter-1.jpg","http://localhost:5500/src/assets/parameter-2.jpg","http://localhost:5500/src/assets/parameter-3.jpg"],
+    "tuijian":["http://localhost:5500/src/assets/hou01.jpg","http://localhost:5500/src/assets/hou02.jpg","http://localhost:5500/src/assets/hou03.jpg"]
    
 }

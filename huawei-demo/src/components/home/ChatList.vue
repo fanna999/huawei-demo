@@ -20,7 +20,7 @@
         </div>
         <div class="header-final">
           <img src="../../assets/消息.png" alt />
-          <span>登录</span>
+          <span @click="registerClick">登录</span>
         </div>
       </div>
       <!-- 推荐、华为专区、荣耀专区 -->
@@ -169,6 +169,11 @@ export default {
       this.$router.push({
         path: "/search",
       });
+    },
+    registerClick(){
+      this.$router.push({
+        path:"/login"
+      })
     },
     edit() {
       this.seen = true;

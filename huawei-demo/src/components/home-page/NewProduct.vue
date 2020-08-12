@@ -28,7 +28,7 @@ export default {
        
 
         if (response.data.code == 200) {
-          that.proList = response.data.proList;  console.log(that.proList)
+          that.proList = response.data.proList;  
         }
       })
       .catch(function (reject) {

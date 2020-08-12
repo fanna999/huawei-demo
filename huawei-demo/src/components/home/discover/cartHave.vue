@@ -14,7 +14,7 @@
 
     <div class="recommand-list">
         <ul class="reco-list-ul">
-            <li class="reco-list-li" v-for="(item,index) in this.$store.state.ShoppingAjaxList" :key="item">
+            <li class="reco-list-li" v-for="(item,index) in this.$store.state.ShoppingAjaxList" :key="item.id">
                 <a class="reco-list-a">
                     <div class="img-container"><img :src="item.avatar"></div>
                     <div class="iconfont little-shopping-cart" @click="addShop('gouwuche'+(index+1))" >&#xe699;</div>

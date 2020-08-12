@@ -45,7 +45,7 @@ export default {
     console.log(error);
   });
 
-  let url2 = "http://localhost:5500/dist/data/findright/product01.json";
+  let url2 = "http://localhost:5500/src/data/findright/product01.json";
     axios.get(url2)
       .then(function (response) {
         if(response.status == 200){
@@ -95,7 +95,7 @@ export default {
     shoppingbtn(id){
       this.cls=id;
       let that = this;
-      let url = "http://localhost:5500/dist/data/findright/product"+id+".json";
+      let url = "http://localhost:5500/src/data/findright/product"+id+".json";
       axios.get(url)
         .then(function (response) {
           if(response.status == 200){

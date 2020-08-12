@@ -402,7 +402,7 @@ export default {
         // let id = this.$route.query.id;
         console.log(this.$route.query.id)
             let url;
-            url = "http://localhost:5500/dist/data/xiangqing/"+this.$route.query.id+".json";
+            url = "http://localhost:5500/src/data/xiangqing/"+this.$route.query.id+".json";
             let that = this;
             axios.get(url)
             .then(function (response) {
@@ -418,7 +418,7 @@ export default {
      watch:{
          '$route.query.id'(){
             let id = this.$route.query.id;
-            let url = "http://localhost:5500/dist/data/xiangqing/"+id+".json";
+            let url = "http://localhost:5500/src/data/xiangqing/"+id+".json";
 
             let that = this;
             axios.get(url)

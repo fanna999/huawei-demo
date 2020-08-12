@@ -2,7 +2,7 @@
     "code": 200, 
     "status": "成功", 
     "shoppingid":"华为畅享Z-5G",
-    "lunbotu":["http://localhost:5500/dist/assets/phone-0.jpg","http://localhost:5500/dist/assets/phone-2.png","http://localhost:5500/dist/assets/phone-3.png","http://localhost:5500/dist/assets/phone-4.png"],
+    "lunbotu":["http://localhost:5500/src/assets/phone-0.jpg","http://localhost:5500/src/assets/phone-2.png","http://localhost:5500/src/assets/phone-3.png","http://localhost:5500/src/assets/phone-4.png"],
     "num":1,
     "shopping":{
         "Price":1899,
@@ -23,22 +23,22 @@
         "mianxi":"",
         "dapei":[
            {
-            "img":"http://localhost:5500/dist/assets/headset-8.png",
+            "img":"http://localhost:5500/src/assets/headset-8.png",
             "item":"省50",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-6.png",
+            "img":"http://localhost:5500/src/assets/headset-6.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-4.png",
+            "img":"http://localhost:5500/src/assets/headset-4.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/dist/assets/headset-1.png",
+            "img":"http://localhost:5500/src/assets/headset-1.png",
             "item":"省100",
             "jia":""
            }
@@ -63,22 +63,22 @@
         "haoping":" 98%",
         "user":[
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             },
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             },
             {
-                "userimg":"http://localhost:5500/dist/assets/haoping.jpg",
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
                 "name":"凌风",
                 "item":" 非常好 快递超快 质量也很好 ",
-                "img":"http://localhost:5500/dist/assets/user-1.jpg"
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
             }
             
         ]
@@ -88,6 +88,6 @@
         "houzhi":"后置三摄：4800万像素(主摄，f/1.8光圈)+800万像素（广角，f/2.4光圈）+200万像素（f/2.4光圈）"
     },
     "gouji":[],
-    "tuijian":["http://localhost:5500/dist/assets/hou04.jpg","http://localhost:5500/dist/assets/hou05.jpg","http://localhost:5500/dist/assets/hou06.jpg"]
+    "tuijian":["http://localhost:5500/src/assets/hou04.jpg","http://localhost:5500/src/assets/hou05.jpg","http://localhost:5500/src/assets/hou06.jpg"]
    
 }

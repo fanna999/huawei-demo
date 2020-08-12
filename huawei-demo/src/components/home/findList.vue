@@ -24,12 +24,8 @@
 </template>
 
 <script>
-//import BScroll from "better-scroll";
-// new BScroll(".find-left");
 import axios from "axios"
 import findright from "./find/findright.vue";
-// import phonetwo from "./find/phonetwo.vue";
-
 
 export default {
   created(){
@@ -69,7 +65,6 @@ export default {
   },
   components: {
     "find-right": findright,
-    // "phonetwo-list": phonetwo,
   },
 
   data(){

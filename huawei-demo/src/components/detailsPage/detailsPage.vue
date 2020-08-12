@@ -376,18 +376,19 @@
                 <div>客服</div>
             </div>
             <!-- 添加到购物车 -->
-            <div class="detail-bottom-item" @click="btnmaicar(projectarr,shoppingnum)">
+            <div class="detail-bottom-item" @click="btnmaicar()">
                 <div>
                     <img src="../../assets/购物车.png" alt="">
                     <div class="addnum" :class="{gwc:isgwc}">
-                        {{addnum}}
+                        {{addnumAll}}
                     </div>
                     <div>购物车</div>
                 </div>
             </div>
             <div class="detail-bottom-item gou">
-                <div class="detail-left" @click="addshopping(shoppingid)">加入购物车</div>
+                <div class="detail-left" @click="addshopping(projectarr,shoppingid)">加入购物车</div>
                 <div class="detail-right" @click="buyshopping(shoppingid)">立即购买</div>
+                <!-- {{addnumAll}} -->
             </div>
         </div>
     </div>
@@ -396,8 +397,9 @@
 <script>
 import pingjia from "./pingjia.vue";
 import axios from "axios";
-
+import store from "../../store/index.js"
 export default {
+    store,
      created(){
         // let id = this.$route.query.id;
         console.log(this.$route.query.id)
@@ -414,7 +416,11 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
+            
+            
      },
+    
+     
      watch:{
          '$route.query.id'(){
              
@@ -433,18 +439,35 @@ export default {
                 console.log(error);
             });
         }
+        
      },
      methods:{
-         btnmaicar(projectarr,shoppingnum){
+         btnmaicar(){                      
+                this.$router.replace("/");
+                this.$emit("detailPage")  
+         },
+         addshopping(projectarr,shoppingid){
+             
+             this.shoppingnum++;
+             projectarr.addnum++;
+             
+            //  this.$store.state.addnum = this.shoppingnum;
+
              let index = -1;
+             
              for(let i =0;i<this.$store.state.shoppingList.length;i++){
                  if(this.$store.state.shoppingList[i].wholeName == projectarr.shopping.introduce){
                      index = i;
                  }
              };
              if(index>-1){
-                 this.$store.state.shoppingList[index].shuliang = this.addnum;
-             }else{
+                 console.log("index>-1")
+                 this.$store.state.shoppingList[index].shuliang = projectarr.addnum;
+                 this.$store.state.shoppingList[index].addnum = projectarr.addnum;
+                 this.$store.state.shoppingList[index].peiNumber = projectarr.addnum;
+                 this.shoppingnum = 0;
+             }else if(index==-1){
+                 console.log("index==-1")
                  this.$store.state.shoppingList.push(
                      {
                        price: "￥"+String(projectarr.shopping.Price), 
@@ -452,27 +475,24 @@ export default {
                        wholeName:projectarr.shopping.introduce,
                        subTitle:projectarr.shopping.subTitle,
                         okSeen:true,
-                        shuliang:this.addnum,
+                        shuliang:this.shoppingnum,
                         redInfo:projectarr.shopping.itemThree,
                         service:projectarr.shopping.xuangou,
                         peiImage:projectarr.shopping.dapei[0].img,
-                        peiNumber:1,
-                        peiName:projectarr.shopping.dapei[0].name
-                   }, 
+                        peiNumber:this.shoppingnum,
+                        peiName:projectarr.shopping.dapei[0].name,
+                        addnum:this.shoppingnum
+                   }
+                   
+                   
                 );
+              this.shoppingnum = 0;
              }
-            if(shoppingnum !==0){
-                this.$router.push({
-                        path:"/cartHave",
-                       
-                })
+            
+             console.log("store shoopingList");
+                console.log(this.$store.state.shoppingList);
 
-            }
-         },
-         addshopping(shoppingid){
-             this.shoppingnum++;
-             this.addnum = this.shoppingnum;
-             this.isgwc = true
+
          },
          buyshopping(shoppingid){
              console.log(shoppingid)
@@ -507,8 +527,8 @@ export default {
           classList:null,
           offsetTop:0,
           scrollTop:0,
-          isgwc:false,
-          addnum:null,
+        //   isgwc:false,
+        //   addnum:-1,
           id:"HUAWEI-P40-5G",
           Price:"",
           seem:false,
@@ -516,12 +536,12 @@ export default {
           shoppingnum:0,
           projectarr:{},
           feiSwiperOptions: {
-          loop:true,
-          pagination: {
-            el: '.fei-swiper-pagination',
-            type: 'fraction',
-          },
-        }
+            loop:true,
+            pagination: {
+                el: '.fei-swiper-pagination',
+                type: 'fraction',
+            }
+            }
       }
     },
     components:{
@@ -530,7 +550,39 @@ export default {
     computed: {
       swiper() {
         return this.$refs.feiSwiper.$swiper
-      }
+      },
+      isgwc(){
+          let that = this;
+             if (that.addnumAll == 0)
+             {
+                
+                 return false
+             }
+             else 
+             {
+                 return true
+             }
+         },
+         addnumAll()
+         {
+             let numAll = 0
+             console.log("addnumAll")
+             console.log(this.$store.state.shoppingList)
+             
+             if(this.$store.state.shoppingList.length!=0)
+             {
+                 for(let i=0;i<this.$store.state.shoppingList.length;i++)
+                 {
+                     numAll+=this.$store.state.shoppingList[i].addnum;
+                 }
+                 return numAll
+             }
+             else
+             {
+                 return 0
+             }
+            
+         }
     }
 }
 </script>

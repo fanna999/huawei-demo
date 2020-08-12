@@ -28,11 +28,22 @@ export default {
             return this.$store.state.shoppingList
         }
     },
+    mounted(){
+          if (this.shoppingL.length>0)
+            {
+                this.cartEmpty = "cartHave"
+            }
+            if (this.shoppingL.length == 0)
+            {
+                this.cartEmpty = "empty"
+            }
+    },
     watch:{
         shoppingL(newVal){
-            console.log(newVal)
-            console.log(newVal.length)
-            if (newVal)
+            console.log("shopplingL");
+            console.log(this.shoppingL.length);
+            // console.log(newVal.length)
+             if (newVal.length>0)
             {
                 this.cartEmpty = "cartHave"
             }
@@ -40,6 +51,7 @@ export default {
             {
                 this.cartEmpty = "empty"
             }
+          
             
         }
     }

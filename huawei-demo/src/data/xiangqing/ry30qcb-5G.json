@@ -4,6 +4,7 @@
     "shoppingid":"荣耀30青春版 5G",
     "lunbotu":["http://localhost:5500/src/assets/ry30-1.jpg","http://localhost:5500/src/assets/ry30-2.jpg","http://localhost:5500/src/assets/ry30-3.jpg","http://localhost:5500/src/assets/ry30-4.jpg","http://localhost:5500/src/assets/ry30-5.jpg","http://localhost:5500/src/assets/ry30-6.jpg"],
     "num":1,
+    "addnum":0,
     "shopping":{
         "Price":2999,
         "introduce":"荣耀30 50倍超稳远摄 超感光高清夜拍 40W超级快充 双模5G 8GB+128GB 钛空银",

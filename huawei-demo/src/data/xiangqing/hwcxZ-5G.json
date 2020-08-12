@@ -4,6 +4,7 @@
     "shoppingid":"华为畅享Z-5G",
     "lunbotu":["http://localhost:5500/src/assets/phone-0.jpg","http://localhost:5500/src/assets/phone-2.png","http://localhost:5500/src/assets/phone-3.png","http://localhost:5500/src/assets/phone-4.png"],
     "num":1,
+    "addnum":0,
     "shopping":{
         "Price":1899,
         "introduce":"华为畅享Z 5G 6GB+128GB 全网通版（樱雪晴空）",

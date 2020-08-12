@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" ref="page">
     <div class="top-bar" :class="{white: componentName=='me-list'}">
       <div class="top-title">{{title}}</div>
       <div class="top-btn-wrap">

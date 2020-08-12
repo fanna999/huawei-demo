@@ -4,6 +4,7 @@
     "shoppingid":"HUAWEI-P40-5G",
     "lunbotu":["http://localhost:5500/src/assets/pone-1.png","http://localhost:5500/src/assets/pone-2.png","http://localhost:5500/src/assets/pone-3.png","http://localhost:5500/src/assets/pone-4.png","http://localhost:5500/src/assets/pone-5.png","http://localhost:5500/src/assets/pone-6.png"],
     "num":1,
+    "addnum":0,
     "shopping":{
         "Price":5899,
         "introduce":"荣耀30青春版 5G 全网通 8GB+256GB（陶瓷黑）",

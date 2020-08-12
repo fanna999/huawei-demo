@@ -920,7 +920,7 @@ div.order-icon-div
 {
   /* border:1px solid black; */
   /* background-color:white; */
-  top:8px;
+  top:-5px;
 }
 
 .coupon
@@ -1034,7 +1034,7 @@ ul.vmall-top-ul
   width:100%;
   height:30%;
   /* border:1px solid black; */
-  margin-top:25px;
+  margin-top:5px;
   display:flex;
   justify-content:space-between;
 }
@@ -1070,6 +1070,7 @@ li.vmall-top-li p
   width:100%;
   text-align:center;
   font-size:10px;
+  
 }
 
 ul.vmall-bottom-ul

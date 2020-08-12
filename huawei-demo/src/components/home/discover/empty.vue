@@ -6,7 +6,7 @@
         <div class="iconfont shopping-cart">&#xe69a;</div>
         <!-- <button @click="addShop(1)">按我</button> -->
         <p class="top-cart-p">您的购物车没有商品</p>
-        <div class="to-shop">去购物</div>
+        <div class="to-shop" >去购物</div>
         
     </div>
 
@@ -38,7 +38,7 @@ export default {
         addShop(id)
         {
             console.log(id);
-            console.log(this.$store.state.ShoppingAjaxList);
+            // console.log(this.$store.state.ShoppingAjaxList);
             this.$store.commit("addShop",id)
         }
         

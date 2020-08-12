@@ -7,7 +7,8 @@ import home from "../components/Home.vue";
 import DetailsPage from "../components/detailsPage/detailsPage.vue";
 import loginPage from "../components/home/me/loginPage.vue";
 import cartHave from "../components/home/discover/cartHave.vue"
-import Search from "../components/home-page/Search.vue"
+import Search from "../components/home-page/Search.vue";
+import DiscoverList from "../components/home/DiscoverList.vue"
 
 const routes = [
     {
@@ -22,10 +23,10 @@ const routes = [
         path:"/login",
         component:loginPage
     },
-    {
-        path:"/cartHave",
-        component:cartHave
-    },
+    // {
+    //     path:"/cartHave",
+    //     component:DiscoverList
+    // },
     {
         path:"/search",
         component:Search

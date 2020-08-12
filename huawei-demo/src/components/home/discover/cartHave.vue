@@ -18,58 +18,60 @@
         <!-- <button @click="show()">显示</button> -->
     </div>    
     <div class="other"></div>
-    <div class="cart-content" v-for="(item,index) in this.$store.state.shoppingList" :key="item">
-        <div class="cart-content-left">
-            <div class="ok" @click="checkOk(index)" >
-                <div class="iconfont red-ok " v-if="item.okSeen==true">&#xe612;
-                     <!-- <div class="edit-cover" v-if="!rightEdit"></div> -->
+    <div class="cart-content-outer">
+        <div class="cart-content" v-for="(item,index) in this.$store.state.shoppingList" :key="item">
+            <div class="cart-content-left">
+                <div class="ok" @click="checkOk(index)" >
+                    <div class="iconfont red-ok " v-if="item.okSeen==true">&#xe612;
+                        <!-- <div class="edit-cover" v-if="!rightEdit"></div> -->
+                    </div>
+                </div>
+                
+                
+                <img :src="item.avatar">
+            </div>
+            
+            <div class="cart-content-right">
+
+                <p class="whole-name">{{item.wholeName}}</p>
+                <p class="sub-title">{{item.subTitle}}</p>
+                
+                <div class="red-info">
+                    <p class="red-info"  v-for="item2 in item.redInfo" :key="item2">{{item2}}</p>
+                </div>
+                
+                
+                <div class="price-div">
+                    <p class="price">{{item.price}}</p>
+                    <div class="add-minus">
+                        <div class="iconfont minus" @click="minus(index)">&#xe66b;</div>
+                        <p class="add-minus-num">{{item.shuliang}}</p>
+                        <div class="iconfont add" @click="add(index)">&#xe666;</div>
+                    </div>
+                </div>
+
+                <div class="insert">限购20件</div>
+                <div class="service">
+                    <div class="service-left">服务</div>
+                    <div class="service-right">
+                        <div class="service-right-detail" v-for="item3 in item.service" :key="item3">{{item3}}</div>
+                    </div>
+                    <p></p>
+                </div>
+
+                <div class="pei">
+                    <div class="pei-left">配</div>
+                    <div class="pei-right">
+                    <img :src="item.peiImage">
+                    <div class="pei-name">{{item.peiName}}</div>
+                    <div class="pei-number">X{{item.peiNumber}}</div>
+                    </div>
+                    <p></p>
                 </div>
             </div>
             
-            
-            <img :src="item.avatar">
+                
         </div>
-        
-        <div class="cart-content-right">
-
-            <p class="whole-name">{{item.wholeName}}</p>
-            <p class="sub-title">{{item.subTitle}}</p>
-            
-            <div class="red-info">
-                <p class="red-info"  v-for="item2 in item.redInfo" :key="item2">{{item2}}</p>
-            </div>
-            
-            
-            <div class="price-div">
-                <p class="price">{{item.price}}</p>
-                <div class="add-minus">
-                    <div class="iconfont minus" @click="minus(index)">&#xe66b;</div>
-                    <p class="add-minus-num">{{item.shuliang}}</p>
-                    <div class="iconfont add" @click="add(index)">&#xe666;</div>
-                </div>
-            </div>
-
-            <div class="insert">限购20件</div>
-            <div class="service">
-                <div class="service-left">服务</div>
-                <div class="service-right">
-                    <div class="service-right-detail" v-for="item3 in item.service" :key="item3">{{item3}}</div>
-                </div>
-                <p></p>
-            </div>
-
-            <div class="pei">
-                <div class="pei-left">配</div>
-                <div class="pei-right">
-                   <img :src="item.peiImage">
-                   <div class="pei-name">{{item.peiName}}</div>
-                   <div class="pei-number">X{{item.peiNumber}}</div>
-                </div>
-                <p></p>
-            </div>
-        </div>
-        
-              
     </div>
 
     <div class="fix-bottom">
@@ -120,10 +122,12 @@ export default {
     computed:{
         Inprice(){
             let price = 0;
+            
             for(let i=0;i<this.$store.state.shoppingList.length;i++)
             {
                 if(this.$store.state.shoppingList[i].okSeen == true){
-                    price+=parseInt(this.$store.state.shoppingList[i].price.slice(1))*this.$store.state.shoppingList[i].shuliang
+                    price+=parseInt(this.$store.state.shoppingList[i].price.slice(1))*this.$store.state.shoppingList[i].shuliang;
+
                 }
             }
             return price
@@ -168,12 +172,12 @@ export default {
         },
         deleShop()
         {
+            console.log("in cartHave");
+            console.log(this.$store.state.shoppingList)
             this.$store.commit("deleShop");
             this.hint = false;
         },
-        show(){
-            console.log(this.$store.state.shoppingList)
-        },
+        
         checkOk(n)
         {
             
@@ -259,6 +263,14 @@ export default {
 </script>
 
 <style scoped>
+.cart-content-outer
+{
+    /* border:1px solid black; */
+    height:85.5%;
+    width:100%;
+    overflow:auto;
+    padding-bottom:20px;
+}
 .top-bar
 {
     display:none;
@@ -358,12 +370,14 @@ div.edit
     margin:0 auto;
     margin-top:6.5px;
     
-    
+    /* border:1px solid black; */
     width:95%;
-    height:45.5%;
+    /* height:45.5%; */
+    height:auto;
     background-color:white;
     border-radius:10px;
     display:flex;
+    padding-bottom:6px;
 
 }
 ul,li

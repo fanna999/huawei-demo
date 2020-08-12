@@ -520,9 +520,7 @@ export default {
             pagination: {
                 el: '.fei-swiper-pagination',
                 type: 'fraction',
-            },
-            // slidesPerView : 3,
-            // centeredSlides : true,
+            }
             }
       }
     },

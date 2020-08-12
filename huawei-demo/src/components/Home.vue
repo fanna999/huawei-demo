@@ -32,7 +32,7 @@
         <img v-else class="bottom-img" src="../assets/分类.png" />
         <div class="bottom-title" :class="{active:componentName=='find-list'}">分类</div>
       </div>
-      <a  href="https://m.vmall.com/content/index" class="bottom-button" @click="btnClick('contact-list','发现')">
+      <a  href="https://m.vmall.com/content/index" class="bottom-button" @click="btnClick('contact-list','')">
        
         <img v-if="componentName=='contact-list'" class="bottom-img" src="../assets/发现red.png" />
         <img v-else class="bottom-img" src="../assets/发现.png" />

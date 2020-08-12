@@ -264,6 +264,9 @@ export default {
 .list-wrap {
   background-color: #fff;
 }
+.list-wrap::-webkit-scrollbar{
+  display: none;
+}
 .header{
   width: 100%;
   position: sticky;

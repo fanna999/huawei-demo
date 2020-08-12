@@ -1,0 +1,99 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppingid":"HUAWEI-P40-5G",
+    "lunbotu":["http://localhost:5500/src/assets/pone-1.png","http://localhost:5500/src/assets/pone-2.png","http://localhost:5500/src/assets/pone-3.png","http://localhost:5500/src/assets/pone-4.png","http://localhost:5500/src/assets/pone-5.png","http://localhost:5500/src/assets/pone-6.png"],
+    "num":1,
+    "addnum":0,
+    "shopping":{
+        "Price":"3999",
+        "introduce":"HUAWEI P40 Pro+ 5G 全网通 8GB+256GB（陶瓷黑）",
+        "subTitle":"零度白,5G全网通 8GB+256GB,官方标配",
+        "redfenqi":"【8.6-8.8专享】享12期分期免息，7.20-8.20晒图前3000赠mini音箱。",
+        "blakfenqi":"麒麟990 5G SoC芯片，纳米微晶陶瓷工艺，5000万超感知徕卡五摄，100倍双目变焦，华为5G全网通旗舰手机",
+        "cuxiao":{
+            "itemOnetitle":"一站式换新",
+            "itemOne":"APP专享，最高补贴500元",
+            "itemTwotitle":"整点赠礼",
+            "itemTwo":"0点/10点/16点/20点下单前100名赠华为快充移动电源（指定机型共享）",
+            "itemThree":["分期免息","赠送积分"]
+        },
+        "color":["分期免息","赠送积分","白黑","真金","金银","黄银","银白","绿色","纯金"],
+        "banben":["8G全网通 8GB+256GB","8G全网通 8GB+256GB"],
+        "leixing":["官方匹配","厂家直销"],
+        "xuangou":["无忧服务","碎屏保","延长宝"],
+        "mianxi":"掌上生活/花呗分期直购，最高享12期免息 ",
+        "dapei":[
+           {
+            "name":"耳机",
+            "img":"http://localhost:5500/src/assets/headset-3.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "name":"耳机",
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "name":"耳机",
+            "img":"http://localhost:5500/src/assets/headset-6.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "name":"耳机",
+            "img":"http://localhost:5500/src/assets/headset-2.png",
+            "item":"省100",
+            "jia":""
+           }
+        ],
+        "songzhi":{
+            "dizhi":"江苏 南京市 玄武区",
+            "xianhuo":"现货",
+            "item":"，今天21:59前付款，预计8月9日（周日）送达"
+        },
+        "fuwu":{
+            "fuwu1":"已满48元包邮",
+            "fuwu2":"由华为终端提供商品、发货开票及售后服务"
+        },
+        "tuijian":["HUAWEI P40 Pro","HUAWEI P41 Pro"],
+        "jiu":{
+            "jiu1":"以旧换新",
+            "jiu2":"高价回收送多重购新补贴"
+        }
+    },
+    "pingjia":{
+        "num": "用户评价（15129）",
+        "haoping":" 98%",
+        "user":[
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            }
+            
+        ]
+    },
+    "canshu":{
+        "chuanboming":"HUAWEI P40",
+        "houzhi":"超感知徕卡三摄：5000万像素超感知摄像头（广角， f/1.9光圈 ）+ 1600万像素超广角摄像头（f/2.2光圈）+ 800万像素长焦摄像头（f/2.4光圈，支持OIS光学防抖）"
+    },
+    "gouji":["http://localhost:5500/src/assets/parameter-1.jpg","http://localhost:5500/src/assets/parameter-2.jpg","http://localhost:5500/src/assets/parameter-3.jpg"],
+    "tuijian":["http://localhost:5500/src/assets/hou01.jpg","http://localhost:5500/src/assets/hou02.jpg","http://localhost:5500/src/assets/hou03.jpg"]
+   
+}

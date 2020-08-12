@@ -7,10 +7,12 @@
             </div>
         </div>
         <!-- 横向三栏广告 -->
-        <div class="substance-virtue">
-            <div class="substance-virtue-img"  v-for="item in arr.bannerTwo" :key="item.id">
-                <div><img :src="item" alt="加载失败"></div>
-            </div>
+        <div class="substance-virtue-banner">
+                <swiper ref="SwiperThreepng" :options="feiSwiperOptions">
+                    <swiper-slide class="substance-virtue-paizhao" v-for="item in arr.bannerTwo" :key="item.id">
+                        <img :src="item" alt="">
+                    </swiper-slide>
+                </swiper>
         </div>
         <!-- 商品内容 -->
         <div class="substance-phone">
@@ -38,6 +40,13 @@
 <script>
 // import axios from "axios";
 export default {
+    data(){
+        return{
+            feiSwiperOptions:{
+                slidesPerView : 3,
+            }
+        }
+    },
     props:["arr"],
     methods:{
         seeshoping(id){
@@ -54,6 +63,7 @@ export default {
 </script>
 
 <style scoped>
+
 *{
   font-size: 12px;
 }
@@ -100,5 +110,12 @@ export default {
 }
 .substance-phone-item-img img{
     width: 63%;
+}
+
+/* 轮播图 */
+
+.substance-virtue-paizhao img{
+    height: 100%;
+    width: 100%;
 }
 </style>

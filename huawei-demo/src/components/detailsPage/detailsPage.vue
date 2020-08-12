@@ -516,12 +516,14 @@ export default {
           shoppingnum:0,
           projectarr:{},
           feiSwiperOptions: {
-          loop:true,
-          pagination: {
-            el: '.fei-swiper-pagination',
-            type: 'fraction',
-          },
-        }
+            loop:true,
+            pagination: {
+                el: '.fei-swiper-pagination',
+                type: 'fraction',
+            },
+            // slidesPerView : 3,
+            // centeredSlides : true,
+            }
       }
     },
     components:{

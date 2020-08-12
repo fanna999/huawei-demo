@@ -382,7 +382,7 @@
                     <div class="addnum" :class="{gwc:isgwc}">
                         {{addnumAll}}
                     </div>
-                    <div>购物车</div>
+                    <div >购物车</div>
                 </div>
             </div>
             <div class="detail-bottom-item gou">
@@ -442,8 +442,12 @@ export default {
         
      },
      methods:{
+         
          btnmaicar(){                      
-                this.$router.replace("/");
+                this.$router.push({
+                    name:"cart",
+                    path:"/cart"
+                })
                 this.$emit("detailPage")  
          },
          addshopping(projectarr,shoppingid){

@@ -10,6 +10,7 @@ import cartHave from "../components/home/discover/cartHave.vue"
 import Search from "../components/home-page/Search.vue";
 import DiscoverList from "../components/home/DiscoverList.vue"
 
+
 const routes = [
     {
         path:"/",
@@ -30,6 +31,11 @@ const routes = [
     {
         path:"/search",
         component:Search
+    },
+    {
+        name:"cart",
+        path:"/cart",
+        component:cartHave
     }
 
 

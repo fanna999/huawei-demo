@@ -60,8 +60,10 @@ import contactList from "./home/ContactList.vue";
 import findList from "./home/findList.vue";
 import discoverList from "./home/DiscoverList.vue";
 import meList from "./home/MeList.vue";
+import router from "../router/index.js"
 
 export default {
+  
   data() {
     return {
       componentName: "chat-list",
@@ -79,6 +81,14 @@ export default {
     btnClick(componentName, title) {
       this.componentName = componentName;
       this.title = title;
+
+      if (componentName == "discover-list")
+      {
+        this.$router.push({
+          name:"cart",
+          path:"/cart"
+        })
+      }
     }
   },
   

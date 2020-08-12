@@ -26,16 +26,23 @@ export default {
         shoppingL()
         {
             return this.$store.state.shoppingList
-        }
+        },
+        
     },
     mounted(){
+        
           if (this.shoppingL.length>0)
             {
                 this.cartEmpty = "cartHave"
+                this.$router.push({
+                    name:"cart",
+                    path:"/cart"
+                })
             }
             if (this.shoppingL.length == 0)
             {
                 this.cartEmpty = "empty"
+                this.$router.replace("/")
             }
     },
     watch:{
@@ -45,11 +52,16 @@ export default {
             // console.log(newVal.length)
              if (newVal.length>0)
             {
-                this.cartEmpty = "cartHave"
+                this.cartEmpty = "cartHave",
+                this.$router.push({
+                    name:"cart",
+                    path:"/cart"
+                })
             }
             if (newVal.length == 0)
             {
                 this.cartEmpty = "empty"
+                this.$router.replace("/")
             }
           
             

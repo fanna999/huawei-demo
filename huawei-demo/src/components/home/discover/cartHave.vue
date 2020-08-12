@@ -10,6 +10,7 @@
         </div>
     </div>
     <div class="top-cart-fix">
+        <div class="iconfont back" @click="goback">&#xe669;</div>
         <p>购物车</p>
         <div class="edit" @click="edit()">
             <p v-if="rightEdit" style="font-size:16px">编辑</p>
@@ -107,7 +108,7 @@
 import store from "../../../store/index.js";
 import axios from "axios";
 export default {
-    props:[],
+    store,
     data(){
     
         return{
@@ -172,10 +173,19 @@ export default {
         },
         deleShop()
         {
-            console.log("in cartHave");
-            console.log(this.$store.state.shoppingList)
             this.$store.commit("deleShop");
+            
+            console.log("in cartHave");
+          
             this.hint = false;
+              console.log(this.$store.state.shoppingList=="");
+            //   this.$router.replace("/")
+            console.log("in if")
+            if (this.$store.state.shoppingList=="")
+            {
+                console.log("I go to /")
+                this.$router.replace("/")
+            }
         },
         
         checkOk(n)
@@ -256,6 +266,10 @@ export default {
             {
                 this.$store.state.shoppingList[i].peiNumber--;
             }
+        },
+        goback()
+        {
+            this.$router.go(-1);
         }
     }
 
@@ -263,10 +277,24 @@ export default {
 </script>
 
 <style scoped>
+.iconfont.back
+{
+    /* border:1px solid black; */
+    position:absolute;
+    left:5px;
+    border-radius:50%;
+    width:22px;
+    height:22px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    background-color:rgb(172, 171, 171);
+}
 .cart-content-outer
 {
     /* border:1px solid black; */
-    height:85.5%;
+    height:100%;
     width:100%;
     overflow:auto;
     padding-bottom:20px;
@@ -558,7 +586,7 @@ p.price
 .fix-bottom
 {
     position:fixed;
-    bottom:58px;
+    bottom:0;
     width:100%;
     height:6.5%;
     /* border:1px solid black; */

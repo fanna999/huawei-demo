@@ -8,59 +8,138 @@
           </div>
           <div class="top-bar-middle">
             <div class="search-content">
-              <img src="../../assets/search-1.png" alt />             
-              <input  type="text" placeholder="P40" >
+              <img src="../../assets/search-1.png" alt />
+              <input type="text" placeholder="P40" />
             </div>
           </div>
           <div class="top-bar-right">
-            <a href="#">搜索</a>
+            <a href="https://m.vmall.com/product/10086013232739.html">搜索</a>
           </div>
         </div>
         <!-- 热门搜索 -->
-        <div class="middle-content"  >
-            <p class="title">热门搜索</p>
-            <div class="phone-title" v-for="item in searchList"  :key="item.id" >
-                <a href="https://m.vmall.com/search/index?searchWord=P40" class="phone"  >{{item.namef}}</a>
-                <a href="https://m.vmall.com/product/10086397382774.html" class="phone">{{item.names}}</a>
-                <a href="https://m.vmall.com/product/10086369090195.html" class="phone">{{item.namet}}</a>
-               <a href="https://m.vmall.com/product/10086412944469.html" class="phone">{{item.name}}</a>
-            </div>
+        <div class="middle-content">
+          <p class="title">热门搜索</p>
+          <div class="phone-title">
+         
+            <a
+              href="https://m.vmall.com/product/10086013232739.html"
+              class="phone"
+              v-for="(item,index) in searchList"
+              :key="item.index"
+              @click="searchClick(index)"
+            >{{item.name}}</a>
+           
+          </div>
         </div>
-        <div class="bottom-bar"></div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="bottom-bar">
+        <div class="items">
+          <div class="title-search" v-if="searchSeen">
+            <div class="title-left">搜索历史</div>
+            <div class="title-right" @click="clearClick">清空</div>
+          </div>
+          <div class="searchHistory" v-for="item in historList" :key="item.id">
+            <div>{{item.name}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
- data(){
-   return {
-     searchList:[
-       {
-         namef:"P40",
-         names:"荣耀30",
-         namet:"MateBookD",
-          name:"P30"
-       },
-       {
-          namef:"荣耀v30",
-         names:"笔记本新品",
-         namet:"Mate 30",
-        name:"荣耀2"
-       },
-       {
-           namef:"MatePad",
-         names:"荣耀X",
-         namet:"荣耀V6",
-        name:"荣耀X1"
-       }
-     ],
-     list:[],
-     index:0
-   }
- }       
+  data() {
+    return {
+      searchList: [
+        {
+          name: "P40",
+          link: "https://m.vmall.com/product/10086013232739.html",
+        },
+        {
+          name: "荣耀30",
+          link: "https://m.vmall.com/product/10086557426930.html",
+        },
+        {
+          name: "MateBookD",
+          link: "https://m.vmall.com/product/10086987238313.html",
+        },
+        {
+          name: "P30",
+          link: "https://m.vmall.com/product/10086385608674.html",
+        },
+        {
+          name: "荣耀v30",
+          link: "https://m.vmall.com/product/10086811807933.html",
+        },
+        {
+          name: "笔记本新品",
+          link: "https://m.vmall.com/product/10086369090195.html",
+        },
+        { name: "Mate 30",
+        link:"https://m.vmall.com/product/10086727877036.html"
+        },
+        { name: "荣耀2",
+        link:"https://m.vmall.com/product/10086779543890.html" },
+        {
+          name: "MatePad",
+          link:"https://m.vmall.com/product/10086418186714.html"
+        },
+        { name: "荣耀X" ,
+        link:"https://m.vmall.com/product/10086397382774.html"},
+        {
+          name: "荣耀V6",
+          link:"https://m.vmall.com/product/10086412944469.html"
+        },
+      ],
+      searchSeen: false,
+      historList: [],
+      newList: [],
+    };
+  },
+  methods: {
+    searchClick(index) {
+      console.log(index);
+
+      this.historList.push(this.searchList[index]);
+      this.historList.reverse();
+
+      for (let i = 0; i < this.historList.length; i++) {
+        if (this.historList.length !== 0) {
+          this.searchSeen = true;
+        } else {
+          this.searchSeen = false;
+        }
+      }
+
+      localStorage.setItem("historList", JSON.stringify(this.historList));
+    },
+    clearClick() {
+      if (this.historList) {
+        this.historList = [];
+        this.searchSeen = false;
+      }
+    },
+  },
+  created() {
+    let historList = JSON.parse(localStorage.getItem("historList"));
+    if (historList) {
+      this.historList = historList;
+    }
+  },
+  watch: {
+    "historList.length": {
+      handler(historList) {
+        if (this.historList.length !== 0) {
+          this.searchSeen = true;
+        } else {
+          this.searchSeen = false;
+        }
+      },
+    },
+  },
 };
- 
 </script>
 <style  scoped>
 .search {
@@ -79,6 +158,9 @@ export default {
   align-items: center;
   justify-content: center;
   justify-content: space-around;
+}
+.items {
+  width: 100%;
 }
 .top-bar > div {
   margin-top: 5px;
@@ -108,7 +190,7 @@ export default {
   height: 100%;
   border: none;
   display: flex;
-    z-index: 20;
+  z-index: 20;
   background-color: rgb(245, 245, 245);
 }
 .search-content img {
@@ -124,39 +206,70 @@ a {
   text-align: center;
   color: #333;
 }
-.middle-content{
-    width: 100%;
-    background-color: #fff;
-    margin-top: 20px;
+.middle-content {
+  width: 100%;
+  background-color: #fff;
+  /* margin-top: 20px; */
+  padding: 20px 0;
 }
-.title{
-    color: rgb(51, 51, 108);
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 15px;
+.title {
+  color: rgb(51, 51, 108);
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
 }
-.phone-title{
-     margin-left: 15px;
-       display: flex;
-    flex-wrap: nowrap;
-    margin-top: 10px;
-    flex-direction: row;
-    justify-content: space-around;
+.phone-title {
+  margin-left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: space-around;
 }
-.phone{
-    background-color: #f5f5f5;
-    white-space: nowrap;
-    text-align: center;
-    padding: 5px 12px;
-    color: #333;
-    font-size: 13px;
-    display: inline-block;
-    margin-right: 5px;
+.phone {
+  background-color: #f5f5f5;
+  white-space: nowrap;
+  text-align: center;
+  padding: 5px 12px;
+  color: #333;
+  font-size: 13px;
+  display: inline-block;
+
+  margin: 5px 2px;
 }
-.bottom-bar{
-    width: 100%;
-    height: 30px;
-    background-color: #fff;
-    border: none;
+
+.bottom-bar {
+  width: 94%;
+  background-color: #fff;
+  border-top: none;
+  margin: 10px 3% 0;
+}
+.title-search {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.title-left {
+  font-size: 14px;
+  padding: 10px 0;
+  color: #333;
+}
+.title-right {
+  color: #999;
+  font-size: 10px;
+  padding: 10px 0;
+}
+.bottom-content {
+  width: 100%;
+  background-color: #fff;
+}
+.searchHistory {
+  width: 100%;
+  border-top: 1px solid #eaeaea;
+  font-size: 13px;
+}
+.searchHistory > div {
+  padding: 10px 0;
 }
 </style>

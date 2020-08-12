@@ -5,7 +5,7 @@
     "shoppnametwo":"荣耀 HONOR系列",
     "shoppingnamethree":"青春版 HONOR系列",
     "bannerOne":["http://localhost:5500/src/assets/tup-2.jpg","http://localhost:5500/src/assets/ry-4.jpg"],
-    "bannerTwo":["http://localhost:5500/src/assets/paizhao-1.png","http://localhost:5500/src/assets/paizhao-2.png","http://localhost:5500/src/assets/paizhao-3.png"],
+    "bannerTwo":["http://localhost:5500/src/assets/paizhao-1.png","http://localhost:5500/src/assets/paizhao-2.png","http://localhost:5500/src/assets/paizhao-3.png","http://localhost:5500/src/assets/paizhao-4.png","http://localhost:5500/src/assets/paizhao-5.png"],
     "shoppingOne":[
         {
             "img":"http://localhost:5500/src/assets/pone-1.png",

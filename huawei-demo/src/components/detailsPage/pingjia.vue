@@ -1,14 +1,13 @@
 <template>
   <div class="haoping-nav">
-    
-    <div class="haoping-box" >
+    <div class="haoping-box" v-for="item in list" :key="item.id">
         <div class="haoping-left">
           <div class="haoping-username-box">
             <div class="username-img">
-              <img src="../../assets/haoping.jpg" alt="">
+              <img :src="item.userimg" alt="">
             </div>
             <div class="username-box-name">
-              <p>稚苓</p>
+              <p>{{item.username}}</p>
               <p>
                 <img src="../../assets/xing.png" alt="">
               </p>
@@ -16,85 +15,47 @@
             </div>
           </div>
           <p class="haoping-item">
-              非常好 快递超快 质量也很好
+              {{item.content}}
           </p>
         </div>
         <div class="haoping-left">
-          <img src="../../assets/user-1.jpg" alt="">
+          <img :src="item.img" alt="">
         </div>
     </div>
-    <div class="haoping-box" >
-        <div class="haoping-left">
-          <div class="haoping-username-box">
-            <div class="username-img">
-              <img src="../../assets/aijun.jpg" alt="">
-            </div>
-            <div class="username-box-name">
-              <p>爱军</p>
-              <p>
-                <img src="../../assets/xing.png" alt="">
-              </p>
-
-            </div>
-          </div>
-          <p class="haoping-item">
-              支持华为，力挺华为！ 快递更是神速，昨晚下单，今早拿货！爽！
-          </p>
-        </div>
-        <div class="haoping-left">
-          <img src="../../assets/aijunphone.jpg" alt="">
-        </div>
-    </div>
-    <div class="haoping-box" >
-        <div class="haoping-left">
-          <div class="haoping-username-box">
-            <div class="username-img">
-              <img src="../../assets/haoping.jpg" alt="">
-            </div>
-            <div class="username-box-name">
-              <p>稚苓</p>
-              <p>
-                <img src="../../assets/xing.png" alt="">
-              </p>
-
-            </div>
-          </div>
-          <p class="haoping-item">
-              非常好 快递超快 质量也很好
-          </p>
-        </div>
-        <div class="haoping-left">
-          <img src="../../assets/user-1.jpg" alt="">
-        </div>
-    </div>
-    <div class="haoping-box" >
-        <div class="haoping-left">
-          <div class="haoping-username-box">
-            <div class="username-img">
-              <img src="../../assets/aijun.jpg" alt="">
-            </div>
-            <div class="username-box-name">
-              <p>爱军</p>
-              <p>
-                <img src="../../assets/xing.png" alt="">
-              </p>
-
-            </div>
-          </div>
-          <p class="haoping-item">
-              支持华为，力挺华为！ 快递更是神速，昨晚下单，今早拿货！爽！
-          </p>
-        </div>
-        <div class="haoping-left">
-          <img src="../../assets/aijunphone.jpg" alt="">
-        </div>
-    </div>
-   
   </div>
 </template>
 <script>
 export default {
-    
+    data(){
+      return{
+        list:[
+          {
+            userimg:require("../../assets/haoping.jpg"),
+            username:"稚苓",
+            content:"非常好 快递超快 质量也很好",
+            img:require("../../assets/user-1.jpg")
+          },
+          {
+            userimg:require("../../assets/aijun.jpg"),
+            username:"爱军",
+            content:"支持华为，力挺华为！ 快递更是神速，昨晚下单，今早拿货！爽！",
+            img:require("../../assets/aijunphone.jpg")
+          },
+          {
+            userimg:require("../../assets/yanfei.jpg"),
+            username:"燕飞",
+            content:"屏幕很大，手感细腻，第二部华为手机，很喜欢",
+            img:require("../../assets/pingtu.jpg")
+          },
+          {
+            userimg:require("../../assets/haoping.jpg"),
+            username:"稚苓",
+            content:"非常好 快递超快 质量也很好",
+            img:require("../../assets/user-1.jpg")
+          }
+        ]
+      }
+    }
 };
 </script>
 <style  scoped>

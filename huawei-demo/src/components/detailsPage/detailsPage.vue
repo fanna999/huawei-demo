@@ -614,6 +614,7 @@ export default {
 .detail-top-head{
     width: 100%;
     display: flex;
+    z-index: 2;
     flex-direction: row;
     justify-content: space-between;
 }

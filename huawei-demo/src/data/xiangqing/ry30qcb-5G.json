@@ -23,7 +23,7 @@
         "mianxi":"掌上生活/花呗分期直购，最高享12期免息 ",
         "dapei":[
            {
-            "img":"http://localhost:5500/src/assets/headset-5.png",
+            "img":"http://localhost:5500/src/assets/headset-4.png",
             "item":"省100",
             "jia":"+"
            },
@@ -33,12 +33,12 @@
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/src/assets/headset-5.png",
+            "img":"http://localhost:5500/src/assets/headset-3.png",
             "item":"省100",
             "jia":"+"
            },
            {
-            "img":"http://localhost:5500/src/assets/headset-5.png",
+            "img":"http://localhost:5500/src/assets/headset-1.png",
             "item":"省100",
             "jia":""
            }

@@ -74,7 +74,7 @@ export default {
 
   data(){
     return{
-      cls:null,
+      cls:1,
       findcompname:"find-right",
       list:[],
       arr:{

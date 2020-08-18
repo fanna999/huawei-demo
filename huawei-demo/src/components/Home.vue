@@ -82,13 +82,13 @@ export default {
       this.componentName = componentName;
       this.title = title;
 
-      if (componentName == "discover-list")
-      {
-        this.$router.push({
-          name:"cart",
-          path:"/cart"
-        })
-      }
+      // if (componentName == "discover-list")
+      // {
+      //   this.$router.push({
+      //     name:"cart",
+      //     path:"/cart"
+      //   })
+      // }
     }
   },
   

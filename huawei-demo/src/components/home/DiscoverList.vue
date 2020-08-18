@@ -25,24 +25,27 @@ export default {
     computed:{
         shoppingL()
         {
-            return this.$store.state.shoppingList
+            return this.$store.state.shoppingList;
+           
+            
         },
         
     },
     mounted(){
-        
+        console.log("root")
+         console.log(this.$parent.componentName)
           if (this.shoppingL.length>0)
             {
                 this.cartEmpty = "cartHave"
-                this.$router.push({
-                    name:"cart",
-                    path:"/cart"
-                })
+                // this.$router.push({
+                //     name:"cart",
+                //     path:"/cart"
+                // })
             }
             if (this.shoppingL.length == 0)
             {
                 this.cartEmpty = "empty"
-                this.$router.replace("/")
+                // this.$router.replace("/")
             }
     },
     watch:{
@@ -52,16 +55,16 @@ export default {
             // console.log(newVal.length)
              if (newVal.length>0)
             {
-                this.cartEmpty = "cartHave",
-                this.$router.push({
-                    name:"cart",
-                    path:"/cart"
-                })
+                this.cartEmpty = "cartHave"
+                // this.$router.push({
+                //     name:"cart",
+                //     path:"/cart"
+                // })
             }
             if (newVal.length == 0)
             {
                 this.cartEmpty = "empty"
-                this.$router.replace("/")
+                // this.$router.replace("/")
             }
           
             

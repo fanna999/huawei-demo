@@ -443,12 +443,12 @@ export default {
      },
      methods:{
          
-         btnmaicar(){                      
-                this.$router.push({
-                    name:"cart",
-                    path:"/cart"
-                })
-                this.$emit("detailPage")  
+         btnmaicar(){ 
+                this.$parent.$children[0].componentName="discover-list"                     
+                this.$router.replace("/")
+                this.$emit("detailPage");
+                console.log(this.$parent.$children[0].componentName);
+                
          },
          addshopping(projectarr,shoppingid){
              

@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="top-cart-fix">
-        <div class="iconfont back" @click="goback">&#xe669;</div>
+        <!-- <div class="iconfont back" @click="goback">&#xe669;</div> -->
         <p>购物车</p>
         <div class="edit" @click="edit()">
             <p v-if="rightEdit" style="font-size:16px">编辑</p>
@@ -269,7 +269,7 @@ export default {
         },
         goback()
         {
-            this.$router.go(-1);
+            this.$router.go(-1)
         }
     }
 
@@ -355,9 +355,10 @@ export default {
     height:17%;
     background-color:white;
     opacity:1;
-    margin:530px auto 0;
+    margin:513px auto 0;
     border-radius:10px;
     text-align:center;
+    
 }
 .hint p
 {
@@ -586,7 +587,7 @@ p.price
 .fix-bottom
 {
     position:fixed;
-    bottom:0;
+    bottom:53px;
     width:100%;
     height:6.5%;
     /* border:1px solid black; */

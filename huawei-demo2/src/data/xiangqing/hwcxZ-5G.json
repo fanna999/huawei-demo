@@ -1,0 +1,94 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppingid":"华为畅享Z-5G",
+    "lunbotu":["http://localhost:5500/src/assets/phone-0.jpg","http://localhost:5500/src/assets/phone-2.png","http://localhost:5500/src/assets/phone-3.png","http://localhost:5500/src/assets/phone-4.png"],
+    "num":1,
+    "addnum":0,
+    "shopping":{
+        "Price":1899,
+        "introduce":"华为畅享Z 5G 6GB+128GB 全网通版（樱雪晴空）",
+        "redfenqi":"①领券减50+赠耳机②以旧换新最高补贴1818元，点击参与>>",
+        "blakfenqi":"",
+        "cuxiao":{
+            "itemOnetitle":"一站式换新",
+            "itemOne":"APP专享，最高补贴500元",
+            "itemTwotitle":"整点赠礼",
+            "itemTwo":"0点/10点/16点/20点下单前100名赠华为快充移动电源（指定机型共享）",
+            "itemThree":["分期免息","赠送积分"]
+        },
+        "color":["幻夜黑","深海蓝","樱雪晴空"],
+        "banben":["5G全网通 6GB+64GB","5G全网通 8GB+128GB"],
+        "leixing":["官方匹配"],
+        "xuangou":["无忧服务","碎屏保","延长宝"],
+        "mianxi":"",
+        "dapei":[
+           {
+            "img":"http://localhost:5500/src/assets/headset-8.png",
+            "item":"省50",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-6.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-1.png",
+            "item":"省100",
+            "jia":""
+           }
+        ],
+        "songzhi":{
+            "dizhi":"江苏 苏州市 工业园区区",
+            "xianhuo":"现货",
+            "item":"，今天21:59前付款，预计8月9日（周日）送达"
+        },
+        "fuwu":{
+            "fuwu1":"已满48元包邮",
+            "fuwu2":"由华为终端提供商品、发货开票及售后服务"
+        },
+        "tuijian":["HUAWEI P40 Pro","HUAWEI P41 Pro"],
+        "jiu":{
+            "jiu1":"以旧换新",
+            "jiu2":"高价回收送多重购新补贴"
+        }
+    },
+    "pingjia":{
+        "num": "用户评价（17129）",
+        "haoping":" 98%",
+        "user":[
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            }
+            
+        ]
+    },
+    "canshu":{
+        "chuanboming":"华为畅享Z 5G",
+        "houzhi":"后置三摄：4800万像素(主摄，f/1.8光圈)+800万像素（广角，f/2.4光圈）+200万像素（f/2.4光圈）"
+    },
+    "gouji":[],
+    "tuijian":["http://localhost:5500/src/assets/hou04.jpg","http://localhost:5500/src/assets/hou05.jpg","http://localhost:5500/src/assets/hou06.jpg"]
+   
+}

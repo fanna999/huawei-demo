@@ -1,0 +1,84 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppname":"耳机音箱",
+    "shoppnametwo":"音箱",
+    "bannerOne":["http://localhost:5500/src/assets/90751608369510615709.jpg"],
+    "bannerTwo":[],
+    "shoppingOne":[
+        {
+            "img":"http://localhost:5500/src/assets/headset-1.png",
+            "content":"荣耀耳机",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-2.png",
+            "content":"华为耳机",
+            "uid":"HUAWEI-P40-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-3.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "content":"青春版耳机",
+            "uid":"ry30qcb-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-5.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-6.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-7.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-8.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-1.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-2.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"ryPlay5-Pro-5G"
+        }
+    ],
+    "shoppingTwo":[],
+    "shoppingThree":[],
+
+    "shoppingPartsOne":[
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-6.png",
+            "content":"华为音箱"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-17.png",
+            "content":"荣耀音箱"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-8.png",
+            "content":"荣耀Play4 Pro 5G"
+        }
+    ],
+    "shoppingPartsTwo":[]
+
+}

@@ -1,0 +1,51 @@
+{
+    "code":200,
+    "status":"成功",
+   "proList": [
+        {
+         "images":" http://localhost:5500/src/assets/new-product-1.png",
+          "title": "MateBook D 14",
+          "price":"预定立省100"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-2.png",
+          "title": "荣耀Play4+Pro",
+           "price":"￥2489"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-3.png",
+          "title": "华为手环+B6",
+           "price":"限量开售"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-4.png",
+          "title": "荣耀手表2",
+           "price":"最高直降400"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-5.png",
+          "title": "限时799起",
+           "price":"优惠20+免息"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-6.png",
+          "title": "MateBook D 15",
+           "price":"限时799起"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-7.png",
+          "title": "WATCH GT 2",
+           "price":"最高优惠200元"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-8.png",
+          "title": "FreeBuds 3",
+           "price":"最高优惠150元"
+        },
+        {
+         "images": "http://localhost:5500/src/assets/new-product-9.png",
+          "title": "华为智慧屏",
+           "price":"最高优惠100元"
+        }
+      ]
+}

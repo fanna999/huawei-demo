@@ -1,0 +1,94 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppingid":"荣耀30青春版 5G",
+    "lunbotu":["http://localhost:5500/src/assets/ry30-1.jpg","http://localhost:5500/src/assets/ry30-2.jpg","http://localhost:5500/src/assets/ry30-3.jpg","http://localhost:5500/src/assets/ry30-4.jpg","http://localhost:5500/src/assets/ry30-5.jpg","http://localhost:5500/src/assets/ry30-6.jpg"],
+    "num":1,
+    "addnum":0,
+    "shopping":{
+        "Price":2999,
+        "introduce":"荣耀30 50倍超稳远摄 超感光高清夜拍 40W超级快充 双模5G 8GB+128GB 钛空银",
+        "redfenqi":"新低价！：①最高优惠210元，到手价2989元②享12期免息③会员限量赠耳机④下单使用5000以内积分可双倍抵现",
+        "blakfenqi":"",
+        "cuxiao":{
+            "itemOnetitle":"限时特价",
+            "itemOne":"限时直降200元",
+            "itemTwotitle":"一站式换新",
+            "itemTwo":"APP专享，最高补贴600元",
+            "itemThree":["会员限时送","限量送","商品赠券"]
+        },
+        "color":["幻夜黑","绿野仙踪","钛空银","霓影紫","流光幻镜"],
+        "banben":["8G全网通 8GB+256GB","8G全网通 8GB+256GB"],
+        "leixing":["官方匹配","厂家直销"],
+        "xuangou":["无忧服务","碎屏保","延长宝"],
+        "mianxi":"掌上生活/花呗分期直购，最高享12期免息 ",
+        "dapei":[
+           {
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-5.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-3.png",
+            "item":"省100",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-1.png",
+            "item":"省100",
+            "jia":""
+           }
+        ],
+        "songzhi":{
+            "dizhi":"江苏 南京市 玄武区",
+            "xianhuo":"现货",
+            "item":"，今天21:59前付款，预计8月9日（周日）送达"
+        },
+        "fuwu":{
+            "fuwu1":"已满48元包邮",
+            "fuwu2":"由华为终端提供商品、发货开票及售后服务"
+        },
+        "tuijian":["HUAWEI P40 Pro","HUAWEI P41 Pro"],
+        "jiu":{
+            "jiu1":"以旧换新",
+            "jiu2":"高价回收送多重购新补贴"
+        }
+    },
+    "pingjia":{
+        "num": "用户评价（15129）",
+        "haoping":" 98%",
+        "user":[
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            }
+            
+        ]
+    },
+    "canshu":{
+        "chuanboming":"荣耀30青春版 5G",
+        "houzhi":"后置四摄：4000万像素超感光摄像头（广角，f/1.8光圈）+800万像素超广角摄像头（超广角，f/2.4光圈）+800万像素长焦摄像头（f/3.4光圈，支持OIS）+200万像素微距摄像头（f/2.4光圈）"
+    },
+    "gouji":["http://localhost:5500/src/assets/parameter-1.jpg","http://localhost:5500/src/assets/parameter-2.jpg","http://localhost:5500/src/assets/parameter-3.jpg"],
+    "tuijian":["http://localhost:5500/src/assets/hou01.jpg","http://localhost:5500/src/assets/hou02.jpg","http://localhost:5500/src/assets/hou03.jpg"]
+   
+}

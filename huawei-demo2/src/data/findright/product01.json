@@ -1,0 +1,73 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppname":"荣耀V系列",
+    "shoppnametwo":"荣耀 HONOR系列",
+    "shoppingnamethree":"青春版 HONOR系列",
+    "bannerOne":["http://localhost:5500/src/assets/tup-2.jpg","http://localhost:5500/src/assets/ry-4.jpg"],
+    "bannerTwo":["http://localhost:5500/src/assets/paizhao-1.png","http://localhost:5500/src/assets/paizhao-2.png","http://localhost:5500/src/assets/paizhao-3.png","http://localhost:5500/src/assets/paizhao-4.png","http://localhost:5500/src/assets/paizhao-5.png"],
+    "shoppingOne":[
+        {
+            "img":"http://localhost:5500/src/assets/pone-1.png",
+            "content":"HUAWEI-P40-5G",
+            "uid":"HUAWEI-P40-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/pone-2.png",
+            "content":"华为畅享Z-5G",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/pone-3.png",
+            "content":"华为麦芒-9-5G",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/pone-4.png",
+            "content":"荣耀30青春版-5G",
+            "uid":"ry30qcb-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/pone-5.png",
+            "content":"ryPlay4-Pro-5G",
+            "uid":"荣耀Play4-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/pone-6.png",
+            "content":"荣耀Play5-Pro-5G",
+            "uid":"ryPlay5-Pro-5G"
+        }
+    ],
+    "shoppingTwo":[],
+    "shoppingThree":[],
+    "shoppingPartsOnename":"荣耀 HONOR系列",
+    "shoppingPartsOne":[
+        {
+            "img":"http://localhost:5500/src/assets/computer-1.png",
+            "content":"华为智慧屏 V65i"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-2.png",
+            "content":"华为智慧屏 V65i"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-3.png",
+            "content":"荣耀Play4 Pro 5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-4.png",
+            "content":"华为智慧屏 V65i"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-5.png",
+            "content":"荣耀Play4 Pro 5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-6.png",
+            "content":"荣耀Play4 Pro 5G"
+        }
+    ],
+    "shoppingPartsTwoname":"华为 HONOR系列",
+    "shoppingPartsTwo":[]
+
+}

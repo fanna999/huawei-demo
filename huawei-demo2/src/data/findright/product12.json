@@ -1,0 +1,48 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppname":"生态产品分类",
+    "shoppnametwo":"",
+    "bannerOne":["http://localhost:5500/src/assets/23356952469515965332.jpg","http://localhost:5500/src/assets/26086721459512768062.jpg"],
+    "bannerTwo":["http://localhost:5500/src/assets/paizhao-1.png","http://localhost:5500/src/assets/paizhao-2.png","http://localhost:5500/src/assets/paizhao-3.png"],
+    "shoppingOne":[
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-1.png",
+            "content":"路由",
+            "uid":"HUAWEI-P40-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-2.png",
+            "content":"鼠标",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-16.png",
+            "content":"音箱",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-3.png",
+            "content":"路由",
+            "uid":"ry30qcb-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-4.png",
+            "content":"鼠标",
+            "uid":"荣耀Play4-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-5.png",
+            "content":"音箱",
+            "uid":"ryPlay5-Pro-5G"
+        }
+    ],
+    "shoppingTwo":[],
+    "shoppingThree":[],
+
+    "shoppingPartsOne":[
+       
+    ],
+    "shoppingPartsTwo":[]
+
+}

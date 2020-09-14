@@ -1,0 +1,89 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppingid":"华为麦芒-9-5G",
+    "lunbotu":["http://localhost:5500/src/assets/mm-1.jpg","http://localhost:5500/src/assets/mm-2.jpg","http://localhost:5500/src/assets/mm-3.jpg","http://localhost:5500/src/assets/mm-4.jpg","http://localhost:5500/src/assets/mm-5.jpg","http://localhost:5500/src/assets/mm-6.jpg"],
+    "num":1,
+    "addnum":0,
+    "shopping":{
+        "Price":2999,
+        "introduce":"华为麦芒 9 5G 8GB+128GB 全网通（樱雪晴空）",
+        "redfenqi":"【新品首销】①赠华为耳机②赠华为云服务礼包③晒单限量赠精美礼品|老用户加赠延保，点击参与>>>",
+        "blakfenqi":"6.8英寸超清大屏；22.5W超级快充；6400w高清摄影；极速5G新体验；颜值实力派；全系128G大存储；4300mAh大电池；AI智慧节电",
+        "cuxiao":{
+            "itemOnetitle":"一站式换新",
+            "itemOne":"APP专享，最高补贴500元",
+            "itemTwotitle":"整点赠礼",
+            "itemTwo":"0点/10点/16点/20点下单前100名赠华为快充移动电源（指定机型共享）",
+            "itemThree":["分期免息","赠送积分"]
+        },
+        "color":["幻夜黑","樱雪晴空","绮境森林"],
+        "banben":["5G全网通 6GB+128GB","8G全网通 8GB+256GB"],
+        "leixing":["官方标配"],
+        "xuangou":["无忧服务","碎屏保","延长宝"],
+        "mianxi":"掌上生活/花呗分期直购，最高享12期免息 ",
+        "dapei":[
+           {
+            "img":"http://localhost:5500/src/assets/headset-2.png",
+            "item":"省200",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-1.png",
+            "item":"省50",
+            "jia":"+"
+           },
+           {
+            "img":"http://localhost:5500/src/assets/headset-4.png",
+            "item":"省100",
+            "jia":""
+           }
+        ],
+        "songzhi":{
+            "dizhi":"江苏 苏州市 高新区",
+            "xianhuo":"现货",
+            "item":"，今天21:59前付款，预计8月9日（周日）送达"
+        },
+        "fuwu":{
+            "fuwu1":"已满48元包邮",
+            "fuwu2":"由华为终端提供商品、发货开票及售后服务"
+        },
+        "tuijian":["HUAWEI P40 Pro","HUAWEI P41 Pro"],
+        "jiu":{
+            "jiu1":"以旧换新",
+            "jiu2":"高价回收送多重购新补贴"
+        }
+    },
+    "pingjia":{
+        "num": "用户评价（111429）",
+        "haoping":" 98%",
+        "user":[
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            },
+            {
+                "userimg":"http://localhost:5500/src/assets/haoping.jpg",
+                "name":"凌风",
+                "item":" 非常好 快递超快 质量也很好 ",
+                "img":"http://localhost:5500/src/assets/user-1.jpg"
+            }
+            
+        ]
+    },
+    "canshu":{
+        "chuanboming":"HUAWEI P40",
+        "houzhi":"超感知徕卡三摄：5000万像素超感知摄像头（广角， f/1.9光圈 ）+ 1600万像素超广角摄像头（f/2.2光圈）+ 800万像素长焦摄像头（f/2.4光圈，支持OIS光学防抖）"
+    },
+    "gouji":["http://localhost:5500/src/assets/parameter-1.jpg","http://localhost:5500/src/assets/parameter-2.jpg","http://localhost:5500/src/assets/parameter-3.jpg"],
+    "tuijian":["http://localhost:5500/src/assets/hou04.jpg","http://localhost:5500/src/assets/hou07.jpg","http://localhost:5500/src/assets/hou08.jpg"]
+   
+}

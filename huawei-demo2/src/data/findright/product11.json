@@ -1,0 +1,48 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppname":"通用配件分类",
+    "shoppnametwo":"",
+    "bannerOne":["http://localhost:5500/src/assets/26086721459512768062.jpg"],
+    "bannerTwo":[],
+    "shoppingOne":[
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-14.png",
+            "content":"路由",
+            "uid":"ry30qcb-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-15.png",
+            "content":"鼠标",
+            "uid":"荣耀Play4-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-16.png",
+            "content":"音箱",
+            "uid":"ryPlay5-Pro-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-17.png",
+            "content":"路由",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-18.png",
+            "content":"鼠标",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-19.png",
+            "content":"音箱",
+            "uid":"HUAWEI-P40-5G"
+        }
+    ],
+    "shoppingTwo":[],
+    "shoppingThree":[],
+
+    "shoppingPartsOne":[
+        
+    ],
+    "shoppingPartsTwo":[]
+
+}

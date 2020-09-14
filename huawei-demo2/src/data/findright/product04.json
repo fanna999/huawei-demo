@@ -1,0 +1,81 @@
+{
+    "code": 200, 
+    "status": "成功", 
+    "shoppname":"笔记本电脑",
+    "shoppnametwo":"笔记本配件",
+    "bannerOne":["http://localhost:5500/src/assets/bijiben-1.jpg","http://localhost:5500/src/assets/bijiben-2.jpg"],
+    "bannerTwo":[],
+    "shoppingOne":[
+        {
+            "img":"http://localhost:5500/src/assets/computer-1.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"HUAWEI-P40-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-2.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-3.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-5.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-3.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"HUAWEI-P40-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-7.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-8.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-7.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-10.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-6.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwmm-9-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-2.png",
+            "content":"荣耀Play4 Pro 5G",
+            "uid":"hwcxZ-5G"
+        },
+        {
+            "img":"http://localhost:5500/src/assets/computer-3.png",
+            "content":"荣耀笔记本Pro 2020新款",
+            "uid":"hwmm-9-5G"
+        }
+    ],
+    "shoppingTwo":[],
+    "shoppingThree":[],
+
+    "shoppingPartsOne":[
+        {
+            "img":"http://localhost:5500/src/assets/dianqi-14.png",
+            "content":"U盘"
+        }
+    ],
+    "shoppingPartsTwo":[]
+
+}

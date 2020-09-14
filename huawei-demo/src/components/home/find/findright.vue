@@ -1,21 +1,26 @@
 <template>
     <div class="substance-nav">
         <!-- 广告栏 -->
-        <div class="substance-advert" v-for="item in arr.bannerOne" :key="item.id">
+        <!-- <div class="substance-advert" v-for="item in arr.bannerOne" :key="item.id">
             <div class="substance-advert-img">
                 <img :src="item" alt="加载失败">
             </div>
-        </div>
+        </div> -->
         <!-- 横向三栏广告 -->
-        <div class="substance-virtue-banner">
+        <!-- <div class="substance-virtue-banner">
                 <swiper ref="SwiperThreepng" :options="feiSwiperOptions">
                     <swiper-slide class="substance-virtue-paizhao" v-for="item in arr.bannerTwo" :key="item.id">
                         <img :src="item" alt="">
                     </swiper-slide>
                 </swiper>
+        </div> -->
+        <div class="substance-abvert">
+               <div class="substance-abvert-img">
+                   <img :src="datas.ad" alt="加载失败" style="width:97%">
+               </div>                
         </div>
         <!-- 商品内容 -->
-        <div class="substance-phone">
+        <!-- <div class="substance-phone">
             <p>{{arr.shoppname}}</p>
             <div class="substance-phone-item">
                 <div class="substance-phone-item-img"  @click="seeshoping(item.uid)" v-for="item in arr.shoppingOne" :key="item.id">
@@ -23,9 +28,9 @@
                     <p>{{item.content}}</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- 内容配件 -->
-        <div class="substance-phone">
+        <!-- <div class="substance-phone">
             <p>{{arr.shoppnametwo}}</p>
             <div class="substance-phone-item">
                 <div class="substance-phone-item-img" v-for="item in arr.shoppingPartsOne" :key="item.id">
@@ -33,21 +38,52 @@
                     <p>{{item.content}}</p>
                 </div>
             </div>
-        </div> 
+        </div>  -->
+        <div class="substance-phone" v-for="(item,index) in datas.list" :key="index">
+            <p>{{item.title}}</p>
+            <div class="substance-phone-item">
+                <div class="substance-phone-item-img"  @click="seeshoping(item.id)" v-for="item in item.data" :key="item.id">
+                    <img :src="item.poster" alt="图片加载失败">
+                    <p>{{item.pname}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
+
     data(){
         return{
             feiSwiperOptions:{
                 slidesPerView : 3,
+            },
+            datas:{}
+        }
+    },
+    props:["arr","c1id"],
+    watch:{
+        "c1id"(newval,oldval){
+            // console.log(newval,oldval)
+            if(newval){
+                var that = this;
+                axios.get("http://localhost:2020/api/getlist?c1id="+newval).then((response)=>{
+                    console.log(response.data)
+                    that.datas=response.data
+                })
             }
         }
     },
-    props:["arr"],
+    created(){
+        console.log(this.c1id)
+        axios.get("http://localhost:2020/api/getlist?c1id="+this.c1id).then((response)=>{
+                    console.log(response.data)
+
+                    this.datas=response.data
+                })
+    },
     methods:{
         seeshoping(id){
             console.log(id)
@@ -117,5 +153,13 @@ export default {
 .substance-virtue-paizhao img{
     height: 100%;
     width: 100%;
+}
+
+.substance-phone-item-img p{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-line-clamp:2;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
 }
 </style>

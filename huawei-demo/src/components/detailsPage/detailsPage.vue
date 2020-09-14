@@ -41,28 +41,30 @@
         </div>
         <!-- 身体内容部分 -->
         <div class="detail-body" @scroll="activeScroll" ref="acriveOffset">
+            
             <!-- 图片轮播 -->
             <div class="detail-body-bigimg">
                 <swiper ref="feiSwiper" :options="feiSwiperOptions" class="kuan">
-                    <swiper-slide class="lunbo" v-for="item in projectarr.lunbotu" :key="item.id">
-                        <img :src="item" alt="">
+                    <swiper-slide class="lunbo" v-for="item in projectarr.swiper" :key="item.id">
+                        <img :src="item.url" alt="">
                     </swiper-slide>
                     <div class="fei-swiper-pagination" slot="pagination"></div>
                 </swiper>
             </div>
+            
             <div class="detail-body-margin">
                 <!-- 商品页 -->
                 <div class="shangping" v-if="projectarr.shopping">
                     <!-- 价格介绍部分 -->
                     <div class="detail-body-title">
                         <i>￥</i>
-                        <span>{{projectarr.shopping.Price}}</span>
-                        <p>{{projectarr.shopping.introduce}}</p>
+                        <span>{{projectarr.price}}</span>
+                        <p>{{projectarr.pname}}</p>
                     </div>
                     <!-- 活动介绍 -->
                     <div class="detail-body-content" >
-                        <span>{{projectarr.shopping.redfenqi}}</span>
-                        <span class="black">{{projectarr.shopping.blakfenqi}}</span>
+                        <span>"【8.6-8.8专享】享12期分期免息，7.20-8.20晒图前3000赠mini音箱。"</span>
+                        <span class="black">"麒麟990 5G SoC芯片，纳米微晶陶瓷工艺，5000万超感知徕卡五摄，100倍双目变焦，华为5G全网通旗舰手机"</span>
                     </div>
                     <!-- 促销 -->
                     <div class="detail-body-sales">
@@ -96,7 +98,7 @@
                         <div class="detail-body-sales-left">颜色</div>
                         <div class="detail-body-sales-zhong">
                             <div class="sales-zhong-two">
-                                <div class="yuanxingitem" v-for="item in projectarr.shopping.color" :key="item.id">
+                                <div class="yuanxingitem" v-for="item in projectarr.shopping.colors" :key="item.id">
                                     <span class="yuanxing active">{{item}}</span>
                                 </div>
                             </div>
@@ -402,15 +404,20 @@ export default {
     store,
      created(){
         // let id = this.$route.query.id;
-        console.log(this.$route.query.id)
+        // console.log(this.$route.query.id)
             let url;
-            url = "http://localhost:5500/src/data/xiangqing/"+this.$route.query.id+".json";
+            // url = "http://localhost:5500/src/data/xiangqing/"+this.$route.query.id+".json";
+            url = "http://localhost:2020/api/getProductDetail?id="+this.$route.query.id;
             let that = this;
             axios.get(url)
             .then(function (response) {
-            if(response.status == 200){
+                console.log("response")
+                console.log(response)
+            if(response.data.status == 200){
                 that.projectarr = response.data;
-                that.shoppingid = response.data.shoppingid;
+                console.log("projectarr")
+                console.log(that.projectarr)
+                that.shoppingid = response.data.id;
             }
             })
             .catch(function (error) {
@@ -451,47 +458,95 @@ export default {
                 
          },
          addshopping(projectarr,shoppingid){
+             //获取购物车
+             let cart = this.$store.state.shoppingList;
+
+            //当前选购的产品
+            
+             if(cart.length<1){//空购物车
+                cart.push(
+                     {
+                        id:this.shoppingid,
+                       price: "￥"+String(projectarr.price), 
+                       avatar: projectarr.swiper[0].url,
+                       wholeName:projectarr.pname,
+                       subTitle:projectarr.pname,
+                        okSeen:true,
+                        shuliang:1,
+                        addnum:1
+                   }
+                )
+             }else{//有购物车
+                let has=false;
+
+                for(let i =0;i<cart.length;i++){
+                 
+                 if(cart[i].wholeName == projectarr.pname){
+                     cart[i].shuliang++;
+                     cart[i].addnum++;
+                     has=true
+                 }
+             };
+                if(!has){//购物车中没有当前产品
+                    cart.push(
+                     {
+                          id:this.shoppingid,
+                       price: "￥"+String(projectarr.price), 
+                       avatar: projectarr.swiper[0].url,
+                       wholeName:projectarr.pname,
+                       subTitle:projectarr.pname,
+                        okSeen:true,
+                        shuliang:1,
+                        addnum:1
+                   }
+                )
+
+                }
+             }
+             //更新store中的购物车
+             this.$store.state.shoppingList = cart;
+
              
-             this.shoppingnum++;
-             projectarr.addnum++;
+            //  this.shoppingnum++;
+            //  projectarr.addnum++;
              
             //  this.$store.state.addnum = this.shoppingnum;
 
-             let index = -1;
+            //  let index = -1;
              
-             for(let i =0;i<this.$store.state.shoppingList.length;i++){
-                 if(this.$store.state.shoppingList[i].wholeName == projectarr.shopping.introduce){
-                     index = i;
-                 }
-             };
-             if(index>-1){
-                 console.log("index>-1")
-                 this.$store.state.shoppingList[index].shuliang = projectarr.addnum;
-                 this.$store.state.shoppingList[index].addnum = projectarr.addnum;
-                 this.$store.state.shoppingList[index].peiNumber = projectarr.addnum;
-                 this.shoppingnum = 0;
-             }else if(index==-1){
-                 console.log("index==-1")
-                 this.$store.state.shoppingList.push(
-                     {
-                       price: "￥"+String(projectarr.shopping.Price), 
-                       avatar: projectarr.lunbotu[1],
-                       wholeName:projectarr.shopping.introduce,
-                       subTitle:projectarr.shopping.subTitle,
-                        okSeen:true,
-                        shuliang:this.shoppingnum,
-                        redInfo:projectarr.shopping.itemThree,
-                        service:projectarr.shopping.xuangou,
-                        peiImage:projectarr.shopping.dapei[0].img,
-                        peiNumber:this.shoppingnum,
-                        peiName:projectarr.shopping.dapei[0].name,
-                        addnum:this.shoppingnum
-                   }
+            //  for(let i =0;i<this.$store.state.shoppingList.length;i++){
+            //      if(this.$store.state.shoppingList[i].wholeName == projectarr.shopping.introduce){
+            //          index = i;
+            //      }
+            //  };
+            //  if(index>-1){
+            //      console.log("index>-1")
+            //      this.$store.state.shoppingList[index].shuliang = projectarr.addnum;
+            //      this.$store.state.shoppingList[index].addnum = projectarr.addnum;
+            //      this.$store.state.shoppingList[index].peiNumber = projectarr.addnum;
+            //      this.shoppingnum = 0;
+            //  }else if(index==-1){
+            //      console.log("index==-1")
+            //      this.$store.state.shoppingList.push(
+            //          {
+            //            price: "￥"+String(projectarr.price), 
+            //            avatar: projectarr.lunbotu[1],
+            //            wholeName:projectarr.shopping.introduce,
+            //            subTitle:projectarr.shopping.subTitle,
+            //             okSeen:true,
+            //             shuliang:this.shoppingnum,
+            //             redInfo:projectarr.shopping.itemThree,
+            //             service:projectarr.shopping.xuangou,
+            //             peiImage:projectarr.shopping.dapei[0].img,
+            //             peiNumber:this.shoppingnum,
+            //             peiName:projectarr.shopping.dapei[0].name,
+            //             addnum:this.shoppingnum
+            //        }
                    
                    
-                );
-              this.shoppingnum = 0;
-             }
+            //     );
+            //   this.shoppingnum = 0;
+            //  }
             
              console.log("store shoopingList");
                 console.log(this.$store.state.shoppingList);
@@ -534,7 +589,7 @@ export default {
         //   isgwc:false,
         //   addnum:-1,
           id:"HUAWEI-P40-5G",
-          Price:"",
+          price:"",
           seem:false,
           shoppingid:null,
           shoppingnum:0,

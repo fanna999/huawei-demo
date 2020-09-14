@@ -51,16 +51,16 @@
                     </div>
                 </div>
 
-                <div class="insert">限购20件</div>
-                <div class="service">
+                <!-- <div class="insert">限购20件</div> -->
+                <!-- <div class="service">
                     <div class="service-left">服务</div>
                     <div class="service-right">
                         <div class="service-right-detail" v-for="item3 in item.service" :key="item3">{{item3}}</div>
                     </div>
                     <p></p>
-                </div>
+                </div> -->
 
-                <div class="pei">
+                <!-- <div class="pei">
                     <div class="pei-left">配</div>
                     <div class="pei-right">
                     <img :src="item.peiImage">
@@ -68,7 +68,7 @@
                     <div class="pei-number">X{{item.peiNumber}}</div>
                     </div>
                     <p></p>
-                </div>
+                </div> -->
             </div>
             
                 
@@ -90,7 +90,7 @@
             <p class="bottom-zongji">总计:</p>
             <p class="bottom-price">￥{{Inprice}}</p>
 
-            <p class="makeSure">结算({{jiesuan}})</p>
+            <p class="makeSure" @click="save">结算({{jiesuan}})</p>
         </div>
 
         <div class="bottom-right-edit" v-if="!rightEdit" @click="deleHint">
@@ -270,6 +270,34 @@ export default {
         goback()
         {
             this.$router.go(-1)
+        },
+        save(){
+            //购物车
+            let cart=this.$store.state.shoppingList;
+
+            //判断用户是否登录
+            if(!this.$store.state.token){
+                this.$router.push("/login")
+            }else{//已经登录
+
+                //用户id
+            let uid = this.$store.state.uid;
+             
+            //发送到后端保存
+            this.axios.post("http://localhost:2020/api/save",{cart,uid}).then((res)=>{
+                if(res.data.status==200){
+                    //清空购物车
+                    this.$store.state.shoppingList=[]
+
+                    //更新购物车状态
+                    
+                }
+
+            })
+            }
+
+            
+
         }
     }
 

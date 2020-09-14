@@ -140,6 +140,8 @@ const store = new Vuex.Store({
         "daijin":"0.00",
         "login":false
         }],
+        uid:0,
+        token:""
         // addnum:0,
             
         },

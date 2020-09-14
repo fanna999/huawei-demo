@@ -16,10 +16,12 @@
       </div>
       <div class="find-right">
         <keep-alive>
-          <component :is="findcompname" :arr="arr"></component>
+          <component :is="findcompname" :arr="arr" :c1id="c1id"></component>
         </keep-alive>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -29,12 +31,15 @@ import findright from "./find/findright.vue";
 
 export default {
   created(){
-    let url = "http://localhost:5500/src/data/findleft.json";
+    // let url = "http://localhost:5500/src/data/findleft.json";
+    let url="http://localhost:2020/api/navlist";
     let that = this;
-    axios.get(url)
+    this.axios.get(url)
     .then(function (response) {
+     
+      console.log(response)
       if(response.status == 200){
-        that.list = response.data.list;
+        that.list = response.data.list;    
       }
   })
   .catch(function (error) {
@@ -83,11 +88,13 @@ export default {
         shoppingPartsOne:[],
         shoppingPartsTwo:[]
       },
+      c1id:500,
       id:null
     }
   },
    methods:{
     shoppingbtn(id){
+      this.c1id=id;
       this.cls=id;
       let that = this;
       let url = "http://localhost:5500/src/data/findright/product"+id+".json";

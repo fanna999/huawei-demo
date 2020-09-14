@@ -11,6 +11,10 @@ import Swiper, { Navigation, Pagination, Autoplay} from "swiper";
 Swiper.use([Navigation, Pagination,Autoplay]);
 Vue.use(VueAwesomeSwiper)
 
+import axios from "./net/axios"
+import VueAxios from "vue-axios"
+Vue.use(VueAxios,axios)
+
 Vue.config.productionTip = false
 
 new Vue({

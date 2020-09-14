@@ -15,7 +15,7 @@
         <div class="header-search" @click="discoverclick">
           <div class="search-content">
             <img src="../../assets/search-1.png" alt />
-            <input type="text" disabled placeholder="P40" />
+            <input type="text" disabled :placeholder="searchPlaceholder" />
           </div>
         </div>
         <div class="header-final">
@@ -148,6 +148,9 @@ import ProductExhibition from "../../components/home-page/ProductExhibition.vue"
 import BoutiqueRecom from "../../components/home-page/BoutiqueRecom.vue";
 import KindGoods from "../../components/home-page/KindGoods.vue";
 import EndPage from "../../components/home-page/EndPage.vue";
+
+import io from "socket.io-client";
+
 export default {
 
   data() {
@@ -159,11 +162,25 @@ export default {
       second: "00",
 
      chan:false,
-    dell:true
+    dell:true,
+    searchPlaceholder:"P10"
       
     };
   },
 
+  mounted(){
+    //创建socket对象
+    let socket = io.connect("http://localhost:2020",{"force new connection":true})
+
+    //发送消息
+    socket.emit("msg","来自客户端的消息")
+
+    //接收消息
+    socket.on("msg",(msg)=>{
+      this.searchPlaceholder = msg
+      console.log("这是接收自服务器端的消息:",msg)
+    })
+  },
   methods: {
     discoverclick() {
       this.$router.push({

@@ -19,17 +19,20 @@
         </div>
 
         <div class="login-input-content">
-                  <input type="text" v-model="phone" placeholder="用户名" >
-                  <input type="text" v-model="password" placeholder="密码" style="margin-top:15px">
-              
+                  <input type="text" v-model="user" placeholder="用户名" >
+                  <input type="text" v-model="password" placeholder="密码" >
+                  <input type="text" v-model="myname" placeholder="姓名">
+                   <input type="text" v-model="phone" placeholder="手机号" onkeyup="value=value.replace(/[^\d]/g,'')">
+                   <input type="text" v-model="address" placeholder="地址">
+
               </div>
 
-        <div ref="loginBtn" class="login-btn" @click="login">
+        <div ref="loginBtn" class="login-btn" @click="reg">
             登录/注册
 
         </div>
 
-        <p class="login-choice">密码登录 | <router-link to="/register">立马注册</router-link></p>
+        <p class="login-choice">密码登录</p>
 
         <div class="login-bottom">
             <p style="font-size:14px">其他方式登录</p>
@@ -66,7 +69,9 @@ export default {
         return{
             phone:"",
             password:"",
-            
+            myname:"",
+            user:"",
+            address:""
         }
     },
     watch:{
@@ -75,7 +80,8 @@ export default {
             // console.log(this.$refs.loginBtn.style);
             if (newVal!="" && this.password!="")
             {
-                this.$refs.loginBtn.tyle.backgroundColor="rgb(0,125,255)"
+                console.log(this.$refs.loginBtn)
+                this.$refs.loginBtn.style.backgroundColor="rgb(0,125,255)"
             }
             else
             {
@@ -96,29 +102,13 @@ export default {
     },
     
     methods:{
-        login(){
-            // console.log(this.$root.$el.clientWidth*0.95);
-
-            
-            // if (this.phone=="13732623230" && this.password=="1234")
-            // {
-            //     this.$store.state.melist[0].login = true;
-            //     this.$router.replace("/");
-            //     // console.log(this.$store.state.melist);
-            //     }
-
-            if(this.phone && this.password){
-                this.axios.post("http://localhost:2020/api/checklogin",{uname:this.phone,pwd:this.password}).then((res)=>{
+        reg(){
+            if (this.user && this.password){
+                axios.post("http://localhost:2020/api/reg",{username:this.user,pwd:this.password,myname:this.myname,tel:this.phone,address:this.address}).then((res)=>{
                     console.log(res.data)
-                    if(res.data.status==200){
-                        //保存token
-                        this.$store.state.token = res.data.tk
-                        console.log()
-                        //跳转到
-                        this.$store.state.melist[0].login = true;
-                        this.$store.state.melist[0].phone = res.data.tel;
-                        this.$store.state.uid = res.data.id;
-                        this.$router.push("/")
+                    if (res.data.status=="ok"){
+                        //跳转到登录
+                        this.$router.push("/login")
                     }
                 })
             }
@@ -221,7 +211,7 @@ p.login-input-top-left
 .login-input-content
 {
     width:97%;
-    height:35%;
+    height:75%;
     /* border:1px solid black; */
     margin:0 auto;
 }
@@ -230,7 +220,7 @@ p.login-input-top-left
 {
     
     width:100%;
-    height:50%;
+    height:20%;
     font-size:15px;
     border:none;
     border-bottom:1px solid rgb(228,228,228);

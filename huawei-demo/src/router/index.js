@@ -9,6 +9,7 @@ import loginPage from "../components/home/me/loginPage.vue";
 import cartHave from "../components/home/discover/cartHave.vue"
 import Search from "../components/home-page/Search.vue";
 import DiscoverList from "../components/home/DiscoverList.vue"
+import registerPage from "../components/home/me/registerPage.vue"
 
 
 const routes = [
@@ -23,6 +24,10 @@ const routes = [
     {
         path:"/login",
         component:loginPage
+    },
+    {
+        path:"/register",
+        component:registerPage
     },
     // {
     //     path:"/cartHave",
